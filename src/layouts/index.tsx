@@ -14,6 +14,7 @@ interface Props {
         title: string
       }
     }
+    logo: any
   }
 }
 
@@ -30,7 +31,7 @@ class Layout extends React.Component<Props, State> {
             {name: 'description', content: 'Controlnet International Site'},
           ]}
         />
-        <Header lang={this.state.lang}/>
+        <Header lang={this.state.lang} logo={this.props.data.logo}/>
         {children()}
       </div>
     );
@@ -44,6 +45,11 @@ export const query = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    logo: imageSharp(id: {regex: "/ctn-logo/"}) {
+      resolutions(grayscale: true, quality: 100) {
+        ...GatsbyImageSharpResolutions
       }
     }
   }
