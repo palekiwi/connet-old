@@ -2,32 +2,38 @@ import * as React from 'react';
 import Img from 'gatsby-image';
 import styled from "styled-components";
 
-import { colors } from '../styles/constants';
+import Container from '../components/Container';
+import Menu from '../components/Menu';
+
+import { widths, heights, colors } from '../styles/constants';
 
 const StyledHeader = styled.div`
-  background-color: ${colors.base};
-  height: 60px;
-  border-bottom: 3px solid ${colors.accent}
+  background-color: ${colors.white};
+  padding: 10px 0;
+  height: ${heights.header}px;
 `
-
-const initialState = {menu: false};
-type State = Readonly<typeof initialState>;
+const HeaderInner = styled(Container)`
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  justify-content: space-between;
+`
+const Logo = styled.img`
+  height: 100%;
+`
 
 interface Props {
   lang: string
   logo: any
 }
 
-class Header extends React.Component<Props, State> {
-  state = initialState
-
-  render () {
-    return (
-      <StyledHeader>
-        <img src={this.props.logo.resolutions.src} style={{height: '100%'}}/>
-      </StyledHeader>
-    );
-  }
-}
+const Header: React.SFC<Props> = ({lang, logo}) => (
+  <StyledHeader>
+    <HeaderInner>
+      <Logo src={logo.resolutions.src}/>
+      <Menu lang={lang} items={[]}/>
+    </HeaderInner>
+  </StyledHeader>
+);
 
 export default Header;
