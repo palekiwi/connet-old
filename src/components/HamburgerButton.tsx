@@ -29,6 +29,7 @@ const LinesClose = styled(Lines)`
 interface LineProps {
   isOpen: boolean
   className?: string
+  animate: boolean
 }
 
 const Div: React.SFC<LineProps> = (props) => (<div className={props.className}/>);
@@ -40,20 +41,25 @@ const Line = styled(Div)`
   position: relative;
   margin-top: 3px;
   background-color: #000;
-  };
+  ${props => !props.animate &&
+    `animation-duration: 0s !important;`
+  }
 `
 const LineOpen = styled(Line)`
   transform: scaleX(0) translateX(0);
-  animation: ${a.openIn} 0.3s 0.5s 1 normal forwards ease-out;
 `
 
-const OpenEven = styled(LineOpen)`
-  ${props => props.isOpen &&
-    `animation: ${a.openOut2} 0.4s 0s 1 normal forwards linear;`}
+const OpenTwo = styled(LineOpen)`
+  ${props => props.isOpen ?
+    `animation: ${a.openOut2} 0.4s 0s 1 normal forwards linear;`:
+    `animation: ${a.openIn} 0.3s 0.5s 1 normal forwards ease-out;`
+  }
 `
-const OpenOdd = styled(LineOpen)`
-  ${props => props.isOpen &&
-    `animation: ${a.openOut1} 0.4s 0s 1 normal forwards linear;`}
+const OpenOne = styled(LineOpen)`
+  ${props => props.isOpen ?
+    `animation: ${a.openOut1} 0.4s 0s 1 normal forwards linear;`:
+    `animation: ${a.openIn} 0.3s 0.5s 1 normal forwards ease-out;`
+  }
 `
 
 const CloseOne = styled(Line)`
@@ -82,18 +88,30 @@ const CloseTwo = styled(Line)`
   }
 `
 
-const Hamburger: React.SFC<Props> = ({isOpen, toggle}) => (
-  <Button onClick={() => toggle()}>
-    <LinesOpen>
-      <OpenEven isOpen={isOpen}/>
-      <OpenOdd isOpen={isOpen}/>
-      <OpenEven isOpen={isOpen}/>
-    </LinesOpen>
-    <LinesClose>
-      <CloseOne isOpen={isOpen}/>
-      <CloseTwo isOpen={isOpen}/>
-    </LinesClose>
-  </Button>
-);
+class Hamburger extends React.Component<Props, {}> {
+  state = {animate: false}
+
+  componentDidMount () {
+    setTimeout(() => this.setState({animate: true}), 500);
+  }
+
+  render () {
+    const {toggle, isOpen} = this.props;
+    const { animate } = this.state;
+    return(
+      <Button onClick={() => toggle()}>
+        <LinesOpen>
+          <OpenTwo animate={animate} isOpen={isOpen}/>
+          <OpenOne animate={animate} isOpen={isOpen}/>
+          <OpenTwo animate={animate} isOpen={isOpen}/>
+        </LinesOpen>
+        <LinesClose>
+          <CloseOne animate={animate} isOpen={isOpen}/>
+          <CloseTwo animate={animate} isOpen={isOpen}/>
+        </LinesClose>
+      </Button>
+    );
+  }
+}
 
 export default Hamburger;
