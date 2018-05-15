@@ -33,9 +33,6 @@ const Line = styled(Span)`
   transition-property: background-color, opacity, transform;
   transition-timing-function: ease-in;
   width: 16px;
-  &:hover {
-    background-color: orange;
-  }
   &:nth-child(1) {
     top: calc(50% - 6px);
   }

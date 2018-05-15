@@ -11,6 +11,7 @@ const StyledHeader = styled.div`
   background-color: ${colors.white};
   padding: 10px 0;
   height: ${heights.header}px;
+  z-index: 98;
 `
 const HeaderInner = styled(Container)`
   display: flex;
