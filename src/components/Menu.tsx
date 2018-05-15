@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styled from "styled-components";
+import Transition from 'react-transition-group/Transition';
 import { Item } from './Navigation';
 
 interface Props {
@@ -8,16 +9,7 @@ interface Props {
   isOpen: boolean
 }
 
-interface DivProps {
-  className?: string
-  isOpen: boolean
-}
-
-const Div: React.SFC<DivProps> = (props) => (
-  <div className={props.className}>{props.children}</div>
-);
-
-const StyledMenu = styled(Div)`
+const StyledMenu = styled.div`
   position: absolute;
   z-index: 97;
   top: 0;
@@ -26,18 +18,30 @@ const StyledMenu = styled(Div)`
   width: 100%;
   background-color: lightgray;
   display: flex;
-  opacity: ${props => props.isOpen ? '1' : '0'};
-  transform: ${props => props.isOpen ? 'scaleX(1)' : 'scaleX(0)'};
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: ${props => props.isOpen ? 'transform 0s, opacity 0.3s 0.1s' : 'opacity 0.3s, transform 0s 0.3s'};
 `
 
+const defaultStyles = {
+  transition: '0.3s ease-in opacity'
+};
+
+const transitionStyles: TransitionStyles = {
+  entering: { opacity: 0 },
+  entered: { opacity: 1 },
+  exiting: { opacity: 0 },
+  exited: { opacity: 0, display: 'none'}
+};
+
 const Menu: React.SFC<Props> = ({ items, lang, isOpen }) => (
-  <StyledMenu isOpen={isOpen}>
-    {items.map((item, i) => <span key={i}>{item.label[lang]}</span>)}
-  </StyledMenu>
+  <Transition in={isOpen} timeout={{enter: 0, exit: 300}}>
+    {(state: string) => (
+      <StyledMenu style={{...defaultStyles, ...transitionStyles[state]}}>
+        {items.map((item, i) => <span key={i}>{item.label[lang]}</span>)}
+      </StyledMenu>
+    )}
+  </Transition>
 );
 
 export default Menu;
