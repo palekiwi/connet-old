@@ -3,7 +3,7 @@ import Img from 'gatsby-image';
 import styled from "styled-components";
 
 import Container from '../components/Container';
-import Menu from '../components/Menu';
+import Navigation from '../components/Navigation';
 
 import { widths, heights, colors } from '../styles/constants';
 
@@ -31,7 +31,7 @@ const Header: React.SFC<Props> = ({lang, logo}) => (
   <StyledHeader>
     <HeaderInner>
       <Logo src={logo.resolutions.src}/>
-      <Menu lang={lang} items={[]}/>
+      <Navigation lang={lang} items={[]}/>
     </HeaderInner>
   </StyledHeader>
 );

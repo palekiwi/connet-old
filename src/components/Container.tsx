@@ -3,7 +3,6 @@ import { widths, device } from '../styles/constants';
 
 const Container = styled.div`
   margin: 0 auto;
-  position: relative;
 
   @media ${device.desktop} {
     max-width: ${widths.desktop};

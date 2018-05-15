@@ -1,37 +1,42 @@
 import * as React from 'react';
 import styled from "styled-components";
-import Hamburger from './Hamburger2';
-
-const initialState = {isOpen: false};
-type State = Readonly<typeof initialState>;
-
-interface Item {
-  to: string
-  label: {
-    en: string
-    es: string
-    zh: string
-  }
-}
+import { Item } from './Navigation';
 
 interface Props {
-  lang: string
   items: Array<Item>
+  lang: string
+  isOpen: boolean
 }
 
-class Menu extends React.Component<Props, State> {
-  state = initialState
-
-  private toggleMenu = () => {
-    this.setState({isOpen: !this.state.isOpen});
-  }
-
-  render () {
-    return <Hamburger
-      isOpen={this.state.isOpen}
-      toggle={this.toggleMenu}
-      /> ;
-  }
+interface DivProps {
+  className?: string
+  isOpen: boolean
 }
+
+const Div: React.SFC<DivProps> = (props) => (
+  <div className={props.className}>{props.children}</div>
+);
+
+const StyledMenu = styled(Div)`
+  position: absolute;
+  z-index: 98;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  width: 100%;
+  background-color: lightgray;
+  display: ${props => props.isOpen ? 'flex' : 'none'};
+  opacity: ${props => props.isOpen ? '1' : '0'};
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s ease-in opacity;
+`
+
+const Menu: React.SFC<Props> = ({ items, lang, isOpen }) => (
+  <StyledMenu isOpen={isOpen}>
+    {items.map((item, i) => <span key={i}>{item.label[lang]}</span>)}
+  </StyledMenu>
+);
 
 export default Menu;

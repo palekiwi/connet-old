@@ -12,6 +12,7 @@ const Button = styled.div`
   height: 46px;
   position: relative;
   width: 46px;
+  z-index: 99;
 `
 
 interface SpanProps {

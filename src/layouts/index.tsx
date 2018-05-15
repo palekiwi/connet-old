@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 
 import Header from '../components/Header';
 
-const initialState = {lang: ''};
+const initialState = {lang: 'es'};
 type State = Readonly<typeof initialState>;
 
 interface Props {
