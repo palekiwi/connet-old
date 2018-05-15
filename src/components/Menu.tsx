@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styled from "styled-components";
 import Transition from 'react-transition-group/Transition';
+import Fade from './transitions/Fade';
 import { Item } from './Navigation';
 
 interface Props {
@@ -23,25 +24,12 @@ const StyledMenu = styled.div`
   align-items: center;
 `
 
-const defaultStyles = {
-  transition: '0.3s ease-in opacity'
-};
-
-const transitionStyles: TransitionStyles = {
-  entering: { opacity: 0 },
-  entered: { opacity: 1 },
-  exiting: { opacity: 0 },
-  exited: { opacity: 0, display: 'none'}
-};
-
 const Menu: React.SFC<Props> = ({ items, lang, isOpen }) => (
-  <Transition in={isOpen} timeout={{enter: 0, exit: 300}}>
-    {(state: string) => (
-      <StyledMenu style={{...defaultStyles, ...transitionStyles[state]}}>
-        {items.map((item, i) => <span key={i}>{item.label[lang]}</span>)}
-      </StyledMenu>
-    )}
-  </Transition>
+  <Fade duration={{enter: 0, exit: 300}} inProp={isOpen}>
+    <StyledMenu>
+      {items.map((item, i) => <span key={i}>{item.label[lang]}</span>)}
+    </StyledMenu>
+  </Fade>
 );
 
 export default Menu;
