@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from "styled-components";
-import Button from './HamburgerButton';
+import Hamburger from './Hamburger2';
 
 const initialState = {isOpen: false};
 type State = Readonly<typeof initialState>;
@@ -27,7 +27,7 @@ class Menu extends React.Component<Props, State> {
   }
 
   render () {
-    return <Button
+    return <Hamburger
       isOpen={this.state.isOpen}
       toggle={this.toggleMenu}
       /> ;
