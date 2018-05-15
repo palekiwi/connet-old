@@ -18,6 +18,7 @@ export interface Item {
 interface Props {
   lang: string
   items: Array<Item>
+  setLang: setLang
 }
 
 const items: Array<Item> = [
@@ -43,6 +44,7 @@ class Navigation extends React.Component<Props, State> {
           isOpen={this.state.isOpen}
           lang={this.props.lang}
           items={items}
+          setLang={this.props.setLang}
         />
       </div>
     )

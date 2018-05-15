@@ -26,14 +26,14 @@ const Logo = styled.img`
 interface Props {
   lang: string
   logo: any
-  setLang: (lang: string) => void
+  setLang: setLang
 }
 
-const Header: React.SFC<Props> = ({lang, logo}) => (
+const Header: React.SFC<Props> = ({setLang, lang, logo}) => (
   <StyledHeader>
     <HeaderInner>
       <Logo src={logo.resolutions.src}/>
-      <Navigation lang={lang} items={[]}/>
+      <Navigation setLang={setLang} lang={lang} items={[]}/>
     </HeaderInner>
   </StyledHeader>
 );
