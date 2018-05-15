@@ -5,12 +5,19 @@ const Container = styled.div`
   margin: 0 auto;
   position: relative;
 
-  @media ${device.tablet} {
-    max-width: ${widths.lg}px;
+  @media ${device.desktop} {
+    max-width: ${widths.desktop};
+    width: ${widths.desktop};
   }
 
-  @media ${device.laptop} {
-    max-width: ${widths.xl}px;
+  @media ${device.widescreen} {
+    max-width: ${widths.widescreen};
+    width: auto;
+  }
+
+  @media ${device.fullhd} {
+    max-width: ${widths.fullhd};
+    width: auto;
   }
 `;
 

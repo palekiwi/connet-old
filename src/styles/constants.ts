@@ -16,31 +16,26 @@ export const fonts = {
     'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace, monospace',
 }
 
+const gap = 64;
+
 const size = {
-  mobileS: '320px',
-  mobileM: '375px',
-  mobileL: '425px',
-  tablet: '768px',
-  laptop: '1024px',
-  laptopL: '1440px',
-  desktop: '2560px'
+  tablet: '769px',
+  desktop: `${960 + 2 * gap}px`,
+  widescreen: `${1152 + 2 * gap}px`,
+  fullhd: `${1344 + 2 * gap}px`,
 };
 
 export const device = {
-  mobileS: `(min-width: ${size.mobileS})`,
-  mobileM: `(min-width: ${size.mobileM})`,
-  mobileL: `(min-width: ${size.mobileL})`,
   tablet: `(min-width: ${size.tablet})`,
-  laptop: `(min-width: ${size.laptop})`,
-  laptopL: `(min-width: ${size.laptopL})`,
   desktop: `(min-width: ${size.desktop})`,
-  desktopL: `(min-width: ${size.desktop})`
+  widescreen: `(min-width: ${size.widescreen})`,
+  fullhd: `(min-width: ${size.fullhd})`,
 };
 
 export const widths = {
-  md: 720,
-  lg: 960,
-  xl: 1140,
+  desktop: `${960 - 2 * gap}px`,
+  widescreen: `${1152 - 2 * gap}px`,
+  fullhd: `${1344 - 2 * gap}px`,
 }
 
 export const heights = {
