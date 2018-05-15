@@ -41,8 +41,12 @@ class Layout extends React.Component<Props, State> {
             {name: 'description', content: 'Controlnet International Site'},
           ]}
         />
-        <Header setLang={this.setLang} lang={this.state.lang} logo={this.props.data.logo}/>
-        {children()}
+        <Header
+          setLang={this.setLang}
+          lang={this.state.lang}
+          logo={this.props.data.logo}
+        />
+        {children({...this.props, ...this.state})}
       </div>
     );
   }

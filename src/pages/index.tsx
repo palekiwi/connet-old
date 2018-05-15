@@ -1,11 +1,18 @@
 import * as React from 'react';
+import { navigateTo } from 'gatsby-link';
 
 interface Props {
-  lang: string
+  lang: Lang
 }
 
-const IndexPage: React.SFC<Props> = ({ lang }) => (
-  <div>Index Page</div>
-);
+class IndexPage extends React.Component<Props, {}> {
+  componentDidUpdate () {
+    const lang = this.props.lang;
+    lang !== 'en' && navigateTo(`/${this.props.lang}/`);
+  }
+  render () {
+    return <div>{this.props.lang}</div>;
+  }
+}
 
 export default IndexPage;
