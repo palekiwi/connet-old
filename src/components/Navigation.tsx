@@ -11,7 +11,6 @@ export interface Item {
   label: {
     [key: string]: string
     en: string
-    es: string
     zh: string
   }
 }
@@ -22,8 +21,8 @@ interface Props {
 }
 
 const items: Array<Item> = [
-  {to: '/', label: {es: 'Un', en: 'One', zh: 'Yi'} },
-  {to: '/', label: {es: 'Dos', en: 'Two', zh: 'Er'} },
+  {to: '/', label: {en: 'One', zh: 'Yi'} },
+  {to: '/', label: {en: 'Two', zh: 'Er'} },
 ];
 
 class Navigation extends React.Component<Props, State> {

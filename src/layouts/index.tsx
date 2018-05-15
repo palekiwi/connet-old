@@ -1,6 +1,7 @@
 import * as React from 'react';
-import Helmet from 'react-helmet';
+import * as locale from '../utils/locale';
 
+import Helmet from 'react-helmet';
 import Header from '../components/Header';
 
 const initialState = {lang: 'es'};
@@ -21,6 +22,15 @@ interface Props {
 class Layout extends React.Component<Props, State> {
   state = initialState
 
+  componentDidMount () {
+    this.setState({lang: locale.getLocale()});
+  }
+
+  private setLang = (lang: Lang) => {
+    locale.saveLocale(lang);
+    this.setState({lang});
+  }
+
   render () {
     const {children, data} = this.props;
     return (
@@ -31,7 +41,7 @@ class Layout extends React.Component<Props, State> {
             {name: 'description', content: 'Controlnet International Site'},
           ]}
         />
-        <Header lang={this.state.lang} logo={this.props.data.logo}/>
+        <Header setLang={this.setLang} lang={this.state.lang} logo={this.props.data.logo}/>
         {children()}
       </div>
     );

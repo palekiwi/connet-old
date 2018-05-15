@@ -1,5 +1,7 @@
 declare const graphql: (query: TemplateStringsArray) => void;
 
+declare module 'browser-locale';
+
 declare module 'typography';
 declare module 'typography-theme-noriega';
 

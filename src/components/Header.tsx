@@ -26,6 +26,7 @@ const Logo = styled.img`
 interface Props {
   lang: string
   logo: any
+  setLang: (lang: string) => void
 }
 
 const Header: React.SFC<Props> = ({lang, logo}) => (
