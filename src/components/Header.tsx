@@ -12,7 +12,6 @@ const StyledHeader = styled.div`
   position: fixed;
   width: 100%;
   background-color: ${colors.white};
-  padding: 10px 0;
   height: ${heights.header}px;
   z-index: 98;
 `
@@ -21,10 +20,28 @@ const HeaderInner = styled(Container)`
   flex-direction: row;
   height: 100%;
   justify-content: space-between;
+  align-items: center;
 `
-const Logo = styled.img`
+
+const Brand = styled.div`
+  display: flex;
   height: 100%;
+  flex-direction: row;
+  padding: 10px 0;
+`
+
+const Logo = styled.img`
   padding-left: 10px;
+  height: 100%;
+`
+
+const Brandname = styled.h4`
+  align-self: center;
+  margin: 0;
+  padding: 0;
+  padding-left: 1em;
+  font-weight: 300;
+  text-transform: uppercase;
 `
 
 interface Props {
@@ -37,7 +54,10 @@ interface Props {
 const Header: React.SFC<Props> = ({setLang, lang, logo, toggleLock}) => (
   <StyledHeader>
     <HeaderInner>
-      <Logo src={logo.resolutions.src}/>
+      <Brand>
+        <Logo src={logo.resolutions.src}/>
+        <Brandname>Controlnet</Brandname>
+      </Brand>
       <Navigation toggleLock={toggleLock} setLang={setLang} lang={lang} items={[]}/>
     </HeaderInner>
   </StyledHeader>
