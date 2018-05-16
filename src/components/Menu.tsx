@@ -18,6 +18,7 @@ const StyledMenu = styled.div`
   top: 0;
   left: 0;
   min-height: 100vh;
+  max-height: 100vh;
   width: 100%;
   background-color: ${colors.gray};
   display: flex;

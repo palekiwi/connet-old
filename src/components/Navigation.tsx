@@ -19,6 +19,7 @@ interface Props {
   lang: string
   items: Array<Item>
   setLang: setLang
+  toggleLock: (b: boolean) => void
 }
 
 const items: Array<Item> = [
@@ -28,6 +29,10 @@ const items: Array<Item> = [
 
 class Navigation extends React.Component<Props, State> {
   state = initialState
+
+  componentWillUpdate (_: Props, nextState: State) {
+      this.state.isOpen !== nextState.isOpen && this.props.toggleLock(nextState.isOpen);
+  }
 
   private toggleMenu = () => {
     this.setState({isOpen: !this.state.isOpen});

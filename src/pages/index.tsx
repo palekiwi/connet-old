@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { navigateTo } from 'gatsby-link';
 
+import Hero from '../components/Hero';
+import SectionCentered from '../components/SectionCentered';
+
 interface Props {
   lang: Lang
   data: {
@@ -10,6 +13,7 @@ interface Props {
         defLang: string
       }
     }
+    heroImg: any
   }
 }
 
@@ -19,7 +23,13 @@ class IndexPage extends React.Component<Props, {}> {
     lang !== data.site.siteMetadata.defLang && navigateTo(`/${lang}/`);
   }
   render () {
-    return <div>{this.props.lang}</div>;
+    return (
+      <div>
+        <Hero img={this.props.data.heroImg}/>
+        <SectionCentered title="Heading" text="Some descriptive text."/>
+        <SectionCentered background={'lightgray'} text="Some descriptive text."/>
+      </div>
+    );
   }
 }
 
@@ -30,6 +40,11 @@ export const query = graphql`
     site {
       siteMetadata {
         defLang
+      }
+    }
+    heroImg: imageSharp(id: {regex: "/solar-panels/"}) {
+      sizes(maxWidth: 1200, grayscale: true) {
+        ...GatsbyImageSharpSizes
       }
     }
   }
