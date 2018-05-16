@@ -24,7 +24,7 @@ interface SpanProps {
 const Span: React.SFC<SpanProps> = (props) => <span className={props.className}/>;
 
 const Line = styled(Span)`
-  background-color: ${props => props.theme.main};
+  background-color: ${props => props.theme.base};
   display: block;
   height: 1px;
   left: calc(50% - 8px);
@@ -56,7 +56,7 @@ const Line = styled(Span)`
   }
 `
 const theme: Theme = {
-  main: 'orange',
+  base: 'orange',
 };
 
 Line.defaultProps = { theme };

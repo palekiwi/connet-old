@@ -1,5 +1,5 @@
 Settings
-  [ ] add default language
-  [ ] index redirect based on default language
+  [X] add default language
+  [X] index redirect based on default language
 Styles
-  [ ] Themes
+  [ ] main theme
