@@ -5,6 +5,7 @@ import { main as theme } from '../styles/themes';
 
 import Helmet from 'react-helmet';
 import LayoutRoot from '../components/LayoutRoot';
+import LayoutMain from '../components/LayoutMain';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -45,28 +46,28 @@ class Layout extends React.Component<Props, State> {
   render () {
     const {children, data} = this.props;
     return (
-      <LayoutRoot lock={this.state.lock}>
-        <Helmet
-          title={data.site.siteMetadata.title}
-          meta={[
-            {name: 'description', content: 'Controlnet International Site'},
-          ]}
-        />
-        <ThemeProvider theme={theme}>
-          <div>
-            <Header
-              toggleLock={this.toggleLock}
-              setLang={this.setLang}
-              lang={this.state.lang}
-              logo={this.props.data.logo}
-            />
+      <ThemeProvider theme={theme}>
+        <LayoutRoot lock={this.state.lock}>
+          <Helmet
+            title={data.site.siteMetadata.title}
+            meta={[
+              {name: 'description', content: 'Controlnet International Site'},
+            ]}
+          />
+          <Header
+            toggleLock={this.toggleLock}
+            setLang={this.setLang}
+            lang={this.state.lang}
+            logo={this.props.data.logo}
+          />
+          <LayoutMain>
             {children({...this.props, ...this.state})}
-            <Footer
-              lang={this.state.lang}
-            />
-          </div>
-        </ThemeProvider>
-      </LayoutRoot>
+          </LayoutMain>
+          <Footer
+            lang={this.state.lang}
+          />
+        </LayoutRoot>
+      </ThemeProvider>
     );
   }
 }

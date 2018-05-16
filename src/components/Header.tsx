@@ -7,6 +7,10 @@ import Navigation from '../components/Navigation';
 import { widths, heights, colors } from '../styles/constants';
 
 const StyledHeader = styled.div`
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
   background-color: ${colors.white};
   padding: 10px 0;
   height: ${heights.header}px;
