@@ -1,11 +1,14 @@
 import * as React from 'react';
 import * as locale from '../utils/locale';
+import { ThemeProvider } from "styled-components";
+import { main as theme } from '../styles/themes';
 
 import Helmet from 'react-helmet';
 import Header from '../components/Header';
 
-const initialState = {lang: 'es'};
-type State = Readonly<typeof initialState>;
+interface State {
+  lang: Lang
+};
 
 interface Props {
   children: any
@@ -20,7 +23,7 @@ interface Props {
 }
 
 class Layout extends React.Component<Props, State> {
-  state = initialState
+  state: State = {lang: 'en'}
 
   componentDidMount () {
     this.setState({lang: locale.getLocale()});
@@ -41,12 +44,16 @@ class Layout extends React.Component<Props, State> {
             {name: 'description', content: 'Controlnet International Site'},
           ]}
         />
-        <Header
-          setLang={this.setLang}
-          lang={this.state.lang}
-          logo={this.props.data.logo}
-        />
-        {children({...this.props, ...this.state})}
+        <ThemeProvider theme={theme}>
+          <div>
+            <Header
+              setLang={this.setLang}
+              lang={this.state.lang}
+              logo={this.props.data.logo}
+            />
+            {children({...this.props, ...this.state})}
+          </div>
+        </ThemeProvider>
       </div>
     );
   }

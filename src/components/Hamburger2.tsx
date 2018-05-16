@@ -18,12 +18,13 @@ const Button = styled.div`
 interface SpanProps {
   isOpen: boolean
   className?: string
+  theme?: Theme
 }
 
 const Span: React.SFC<SpanProps> = (props) => <span className={props.className}/>;
 
 const Line = styled(Span)`
-  background-color: #000;
+  background-color: ${props => props.theme.main};
   display: block;
   height: 1px;
   left: calc(50% - 8px);
@@ -54,6 +55,11 @@ const Line = styled(Span)`
     }`
   }
 `
+const theme: Theme = {
+  main: 'orange',
+};
+
+Line.defaultProps = { theme };
 
 const Hamburger: React.SFC<Props> = ({ toggle, isOpen }) => (
   <Button onClick={() => toggle()}>
