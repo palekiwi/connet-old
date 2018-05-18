@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as locale from '../utils/locale';
 import { ThemeProvider } from "styled-components";
 import { main as theme } from '../styles/themes';
+import { isRoot } from '../utils/helpers';
 
 import Helmet from 'react-helmet';
 import LayoutRoot from '../components/LayoutRoot';
@@ -16,6 +17,9 @@ interface State {
 
 interface Props {
   children: any
+  location: {
+    pathname: string
+  }
   data: {
     site: {
       siteMetadata: {
@@ -44,7 +48,7 @@ class Layout extends React.Component<Props, State> {
   }
 
   render () {
-    const {children, data} = this.props;
+    const {children, data, location} = this.props;
     return (
       <ThemeProvider theme={theme}>
         <LayoutRoot lock={this.state.lock}>

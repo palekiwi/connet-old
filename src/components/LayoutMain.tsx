@@ -11,7 +11,8 @@ const Div: React.SFC<DivProps> = (props) => (
 );
 
 const StyledLayout = styled(Div)`
-  padding-top: ${heights.header};
+  flex: 1;
+  padding-top: ${heights.header}px;
 `
 
 interface Props {

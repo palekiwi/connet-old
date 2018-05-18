@@ -13,6 +13,9 @@ const Div: React.SFC<DivProps> = (props) => (
 Div.defaultProps = {lock: false};
 
 const StyledLayout = styled(Div)`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   overflow-y: ${props => props.lock ? 'hidden' : 'auto'};
   max-height: ${props => props.lock ? '100vh' : 'none'};
 `

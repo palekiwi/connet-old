@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { navigateTo } from 'gatsby-link';
 
-import Hero from '../components/Hero';
-import SectionCentered from '../components/SectionCentered';
+import LandingPage from '../components/pages/LandingPage';
 
 interface Props {
   lang: Lang
@@ -13,7 +12,7 @@ interface Props {
         defLang: string
       }
     }
-    heroImg: any
+    headerOne: any
   }
 }
 
@@ -23,12 +22,9 @@ class IndexPage extends React.Component<Props, {}> {
     lang !== data.site.siteMetadata.defLang && navigateTo(`/${lang}/`);
   }
   render () {
+    const data = this.props.data;
     return (
-      <div>
-        <Hero img={this.props.data.heroImg}/>
-        <SectionCentered title="Heading" text="Some descriptive text."/>
-        <SectionCentered background={'lightgray'} text="Some descriptive text."/>
-      </div>
+      <LandingPage headerOne={data.headerOne}/>
     );
   }
 }
@@ -42,7 +38,7 @@ export const query = graphql`
         defLang
       }
     }
-    heroImg: imageSharp(id: {regex: "/solar-panels/"}) {
+    headerOne: imageSharp(id: {regex: "/solar-panels/"}) {
       sizes(maxWidth: 1200, grayscale: true) {
         ...GatsbyImageSharpSizes
       }
