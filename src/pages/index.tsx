@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { navigateTo } from 'gatsby-link';
 
-import LandingPage from '../components/pages/LandingPage';
+import LandingPage from '../components/LandingPage';
 
 interface Props {
   lang: Lang
