@@ -15,6 +15,7 @@
     "gatsby-plugin-typography": "^1.7.18",
     "gatsby-source-filesystem": "^1.5.35",
     "gatsby-transformer-sharp": "^1.6.24",
+    "ramda": "^0.25.0",
     "react-helmet": "^5.2.0",
     "react-transition-group": "^2.3.1",
     "styled-components": "^3.2.6",
@@ -32,6 +33,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "@types/ramda": "^0.25.29",
     "@types/react-dom": "^16.0.5",
     "@types/react-helmet": "^5.0.6",
     "@types/react-transition-group": "^2.0.9",

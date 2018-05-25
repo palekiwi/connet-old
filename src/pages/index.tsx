@@ -1,3 +1,5 @@
+import { repeat } from 'ramda';
+
 import * as React from 'react';
 import { navigateTo } from 'gatsby-link';
 
@@ -16,6 +18,8 @@ interface Props {
   }
 }
 
+const sections: Array<Tile> = repeat({title: 'Title'}, 4);
+
 class IndexPage extends React.Component<Props, {}> {
   componentDidUpdate () {
     const { lang, data } = this.props;
@@ -24,7 +28,7 @@ class IndexPage extends React.Component<Props, {}> {
   render () {
     const data = this.props.data;
     return (
-      <LandingPage headerOne={data.headerOne}/>
+      <LandingPage headerOne={data.headerOne} sections={sections}/>
     );
   }
 }

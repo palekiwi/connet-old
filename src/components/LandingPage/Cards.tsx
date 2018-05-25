@@ -4,7 +4,7 @@ import { colors, heights } from '../../styles/constants';
 
 import Container from '../Container';
 import Img from 'gatsby-image';
-import Card from '../Card';
+import Card from './Card';
 
 const StyledLanding = styled.div`
   position: relative;
