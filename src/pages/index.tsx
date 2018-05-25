@@ -18,7 +18,14 @@ interface Props {
   }
 }
 
-const sections: Array<Tile> = repeat({title: 'Title'}, 4);
+const sections: Array<Tile> = [
+  {title: 'Microgrid', subtitle: 'Service description with two sentences', path: '/'},
+  {title: 'Power Scada', subtitle: 'Service description with two sentences of different length by some words', path: '/'},
+  {title: 'Flood Control', subtitle: 'Service description with two sentences', path: '/'},
+  {title: 'Energy Saving', subtitle: 'Service description with two sentences of different length by some words', path: '/'},
+  {title: 'Energy Saving', subtitle: 'Service description with two sentences of different length by some words', path: '/'},
+  {title: 'Energy Saving', subtitle: 'Service description with two sentences of different length by some words', path: '/'},
+]
 
 class IndexPage extends React.Component<Props, {}> {
   componentDidUpdate () {

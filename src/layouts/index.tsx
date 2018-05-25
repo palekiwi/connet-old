@@ -4,6 +4,12 @@ import { ThemeProvider } from "styled-components";
 import { main as theme } from '../styles/themes';
 import { isRoot } from '../utils/helpers';
 
+import fontawesome from '@fortawesome/fontawesome';
+import * as FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import * as faCoffee from '@fortawesome/fontawesome-free-solid/faCoffee'
+
+fontawesome.library.add(faCoffee);
+
 import Helmet from 'react-helmet';
 import LayoutRoot from '../components/LayoutRoot';
 import LayoutMain from '../components/LayoutMain';
