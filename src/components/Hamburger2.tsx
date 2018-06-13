@@ -13,6 +13,8 @@ const Button = styled.div`
   position: relative;
   width: 46px;
   z-index: 99;
+  -webkit-tap-highlight-color: rgba(255,255,255,0);
+  -webkit-tap-highlight-color: transparent;
 `
 
 interface SpanProps {
