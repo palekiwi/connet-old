@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from "styled-components";
 
-import Container from '../components/Container';
+import ContainerFluid from '../components/ContainerFluid';
 import Navigation from '../components/Navigation';
 
 import { widths, heights, colors } from '../styles/constants';
@@ -15,7 +15,7 @@ const StyledHeader = styled.div`
   height: ${heights.header}px;
   z-index: 98;
 `
-const HeaderInner = styled(Container)`
+const HeaderInner = styled(ContainerFluid)`
   display: flex;
   flex-direction: row;
   height: 100%;
@@ -27,16 +27,15 @@ const Brand = styled.div`
   display: flex;
   height: 100%;
   flex-direction: row;
-  padding: 10px 0;
+  align-items: center;
 `
 
 const Logo = styled.img`
-  padding-left: 10px;
-  height: 100%;
+  height: ${heights.header - 24}px;
+  margin: 0 12px;
 `
 
 const Brandname = styled.h4`
-  align-self: center;
   margin: 0;
   padding: 0;
   padding-left: 1em;

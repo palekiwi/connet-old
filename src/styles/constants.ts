@@ -39,5 +39,5 @@ export const widths = {
 }
 
 export const heights = {
-  header: 60,
+  header: 64,
 }

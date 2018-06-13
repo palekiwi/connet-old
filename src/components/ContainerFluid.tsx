@@ -5,18 +5,18 @@ const Container = styled.div`
   margin: 0 auto;
 
   @media ${device.desktop} {
-    max-width: ${widths.desktop};
     width: auto;
+    margin: 0 64px;
   }
 
   @media ${device.widescreen} {
-    max-width: ${widths.widescreen};
     width: auto;
+    margin: 0 64px;
   }
 
   @media ${device.fullhd} {
-    max-width: ${widths.fullhd};
     width: auto;
+    margin: 0 64px;
   }
 `;
 

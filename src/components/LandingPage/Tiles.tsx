@@ -6,6 +6,7 @@ import fontawesome from '@fortawesome/fontawesome';
 import * as FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
 import Container from '../Container';
+import ContainerFluid from '../ContainerFluid';
 import Img from 'gatsby-image';
 
 const tileBorder = `1px solid rgba(0,0,0,0.3)`;
@@ -101,6 +102,16 @@ const StyledTile = styled(Div)`
   }
   @media ${device.desktop} {
     justify-content: space-between;
+    flex-basis: ${100/3}%;
+    border-right: ${tileBorder};
+    border-top: none;
+    }
+    &:last-child {
+      border-right: none;
+    }
+  }
+  @media ${device.widescreen} {
+    justify-content: space-between;
     flex-basis: ${props => props.basis};
     border-right: ${tileBorder};
     border-top: none;
@@ -144,12 +155,9 @@ const Heading = styled.h1`
   margin: 2em auto;
 `
 
-const Tiles = styled.div`
-  max-width: 1600px;
-  flex-direction: column;
+const Tiles = styled(ContainerFluid)`
   display: flex;
   flex-flow: row wrap;
-  margin: 0 auto;
   justify-content: center;
   align-content: space-between;
   border-top: ${tileBorder};
@@ -169,12 +177,6 @@ class LandingPage extends React.Component<LandingPageProps, State> {
   render () {
     return (
       <StyledLanding>
-
-        <Content>
-          <Heading>
-            System Engineering Solutions
-          </Heading>
-        </Content>
 
         <Tiles>
           { this.props.sections.map((el, i) =>
