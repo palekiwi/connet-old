@@ -13,6 +13,7 @@ interface Props {
   isOpen: boolean
   setLang: setLang
   toggle: () => void
+  logo: any
 }
 
 const StyledMenu = styled.div`
@@ -23,17 +24,32 @@ const StyledMenu = styled.div`
   min-height: 100vh;
   max-height: 100vh;
   width: 100%;
-  background-color: ${colors.gray};
+  background-color: ${colors.white};
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `
 
-const Menu: React.SFC<Props> = ({ items, lang, isOpen, setLang, toggle }) => (
+const Logo = styled.img`
+  width: 100px;
+  margin: 0 0 20px 0;
+`
+
+const NavLink = styled(Link)`
+`
+
+const Menu: React.SFC<Props> = ({ items, lang, isOpen, setLang, toggle, logo }) => (
   <Fade duration={{enter: 0, exit: 300}} inProp={isOpen}>
     <StyledMenu>
-      {items.map((item, i) => <Link key={i} onClick={() => toggle()} lang={lang} to={item.to}>{item.label[lang]}</Link>)}
+      <Logo src={logo.resolutions.src}/>
+      {items.map((item, i) =>
+        <NavLink key={i}
+          onClick={() => toggle()}
+          lang={lang}
+          to={item.to}>{item.label[lang]}
+        </NavLink>
+      )}
     </StyledMenu>
   </Fade>
 );

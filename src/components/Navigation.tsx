@@ -11,6 +11,7 @@ interface Props {
   items: Array<Item>
   setLang: setLang
   toggleLock: (b: boolean) => void
+  logo: any
 }
 
 const items: Array<Item> = [
@@ -43,6 +44,7 @@ class Navigation extends React.Component<Props, State> {
           toggle={this.toggleMenu}
         />
         <Menu
+          logo={this.props.logo}
           isOpen={this.state.isOpen}
           lang={this.props.lang}
           items={items}
