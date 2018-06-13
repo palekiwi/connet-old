@@ -9,4 +9,5 @@ declare interface Tile {
   subtitle: string
   path: string
   img: any
+  lang?: Lang
 }

@@ -7,7 +7,7 @@ import * as FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
 import ContainerFluid from '../ContainerFluid';
 import Img from 'gatsby-image';
-import Link from 'gatsby-link';
+import Link from '../../components/Link';
 
 const tileBorder = `1px solid rgba(255,255,255,0.1)`;
 const color = 'white';
@@ -90,8 +90,8 @@ const StyledTile = styled(Link)`
   }
 `
 
-const Tile: React.SFC<Tile> = ({ path, title, subtitle, img }) => (
-  <StyledTile to={path}>
+const Tile: React.SFC<Tile> = ({ lang, path, title, subtitle, img }) => (
+  <StyledTile to={path} lang={lang}>
     <ImageWrapper><Image sizes={img.sizes}/></ImageWrapper>
     <Title>{title}</Title>
   </StyledTile>
@@ -131,8 +131,9 @@ class LandingPage extends React.Component<LandingPageProps, State> {
                 key={i}
                 title={el.title}
                 subtitle={el.subtitle}
-                path={this.props.lang + el.path}
+                path={el.path}
                 img={this.props.images.find((e:any) => e.node.relativePath.indexOf(el.img) > -1).node.childImageSharp}
+                lang={this.props.lang}
               />
             )}
           </Tiles>

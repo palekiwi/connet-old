@@ -59,7 +59,7 @@ const Header: React.SFC<Props> = ({setLang, lang, logo, toggleLock}) => (
     <HeaderInner>
       <Brand to={'/'} lang={lang}>
         <Logo src={logo.resolutions.src}/>
-        <Brandname>Controlnet International</Brandname>
+        <Brandname>{lang == 'en' ? 'Controlnet International' : '健格科技'}</Brandname>
       </Brand>
       <Navigation toggleLock={toggleLock} setLang={setLang} lang={lang} items={[]}/>
     </HeaderInner>
