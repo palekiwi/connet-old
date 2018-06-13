@@ -17,7 +17,7 @@ interface Props {
 }
 
 const sections: Array<Tile> = [
-  {title: 'Microgrid', subtitle: 'Service description with two sentences', path: '/', img: 'microgrid'},
+  {title: 'Microgrid', subtitle: 'Service description with two sentences', path: '/microgrid', img: 'microgrid'},
   {title: 'Power Scada', subtitle: 'Service description with two sentences of different length by some words', path: '/', img: 'scada'},
   {title: 'Flood Control', subtitle: 'Service description with two sentences', path: '/', img: 'flood-control'},
   {title: 'Energy Saving', subtitle: 'Service description with two sentences of different length by some words', path: '/', img: 'energy'},
@@ -36,6 +36,7 @@ class IndexPage extends React.Component<Props, {}> {
       <LandingPage
         images={this.props.data.allFile.edges}
         sections={sections}
+        lang={this.props.lang}
       />
     );
   }

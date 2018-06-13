@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styled from "styled-components";
+import Link from '../components/Link';
 
 import ContainerFluid from '../components/ContainerFluid';
 import Navigation from '../components/Navigation';
@@ -23,7 +24,7 @@ const HeaderInner = styled(ContainerFluid)`
   align-items: center;
 `
 
-const Brand = styled.div`
+const Brand = styled(Link)`
   display: flex;
   height: 100%;
   flex-direction: row;
@@ -36,15 +37,18 @@ const Logo = styled.img`
 `
 
 const Brandname = styled.h4`
-  margin: 0;
-  padding: 0;
-  padding-left: 1em;
-  font-weight: 300;
-  text-transform: uppercase;
+  &, &:visited {
+    color: ${colors.base};
+    margin: 0;
+    padding: 0;
+    padding-left: 1em;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
 `
 
 interface Props {
-  lang: string
+  lang: Lang
   logo: any
   setLang: setLang
   toggleLock: (b: boolean) => void
@@ -53,7 +57,7 @@ interface Props {
 const Header: React.SFC<Props> = ({setLang, lang, logo, toggleLock}) => (
   <StyledHeader>
     <HeaderInner>
-      <Brand>
+      <Brand to={'/'} lang={lang}>
         <Logo src={logo.resolutions.src}/>
         <Brandname>Controlnet International</Brandname>
       </Brand>

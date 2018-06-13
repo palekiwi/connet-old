@@ -7,6 +7,7 @@ import * as FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
 import ContainerFluid from '../ContainerFluid';
 import Img from 'gatsby-image';
+import Link from 'gatsby-link';
 
 const tileBorder = `1px solid rgba(255,255,255,0.1)`;
 const color = 'white';
@@ -42,17 +43,7 @@ const Subtitle = styled.h5`
   align-self: flex-end;
 `
 
-interface DivProps {
-  basis: string
-  className?: string
-}
-
-const Div: React.SFC<DivProps> = (props) => (
-  <div className={props.className}>{props.children}</div>
-);
-
-
-const StyledTile = styled(Div)`
+const StyledTile = styled(Link)`
   cursor: pointer;
   height: calc(50vh - 32px);
   position: relative;
@@ -99,8 +90,8 @@ const StyledTile = styled(Div)`
   }
 `
 
-const Tile: React.SFC<Tile> = ({ title, basis, subtitle, img }) => (
-  <StyledTile basis={basis}>
+const Tile: React.SFC<Tile> = ({ path, title, subtitle, img }) => (
+  <StyledTile to={path}>
     <ImageWrapper><Image sizes={img.sizes}/></ImageWrapper>
     <Title>{title}</Title>
   </StyledTile>
@@ -140,8 +131,7 @@ class LandingPage extends React.Component<LandingPageProps, State> {
                 key={i}
                 title={el.title}
                 subtitle={el.subtitle}
-                basis={100 / this.props.sections.length + '%'}
-                path={el.path}
+                path={this.props.lang + el.path}
                 img={this.props.images.find((e:any) => e.node.relativePath.indexOf(el.img) > -1).node.childImageSharp}
               />
             )}
