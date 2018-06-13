@@ -8,7 +8,7 @@ import * as FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import ContainerFluid from '../ContainerFluid';
 import Img from 'gatsby-image';
 
-const tileBorder = `1px solid rgba(0,0,0,0.3)`;
+const tileBorder = `1px solid rgba(255,255,255,0.1)`;
 const color = 'white';
 
 const ImageWrapper = styled.div`
@@ -30,6 +30,8 @@ const Image = styled(Img)`
 
 const Title = styled.h3`
   color: ${color};
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
 `
 
 const Subtitle = styled.h5`
@@ -83,7 +85,6 @@ const StyledTile = styled(Div)`
     }
   }
   @media ${device.desktop} {
-    justify-content: space-between;
     flex-basis: ${100/3}%;
     border-right: ${tileBorder};
     border-top: none;
