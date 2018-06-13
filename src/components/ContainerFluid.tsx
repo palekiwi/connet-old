@@ -1,23 +1,12 @@
 import styled from "styled-components";
 import { widths, device } from '../styles/constants';
 
-const Container = styled.div`
-  margin: 0 auto;
-
+const ContainerFluid = styled.div`
   @media ${device.desktop} {
     width: auto;
     margin: 0 64px;
-  }
-
-  @media ${device.widescreen} {
-    width: auto;
-    margin: 0 64px;
-  }
-
-  @media ${device.fullhd} {
-    width: auto;
-    margin: 0 64px;
+    max-width: none;
   }
 `;
 
-export default Container;
+export default ContainerFluid;

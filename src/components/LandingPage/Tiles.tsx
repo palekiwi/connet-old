@@ -5,7 +5,6 @@ import { device, colors, heights } from '../../styles/constants';
 import fontawesome from '@fortawesome/fontawesome';
 import * as FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
-import Container from '../Container';
 import ContainerFluid from '../ContainerFluid';
 import Img from 'gatsby-image';
 
@@ -31,9 +30,6 @@ const Image = styled(Img)`
 
 const Title = styled.h3`
   color: ${color};
-  padding-top: 1em;
-  padding-bottom: 0.5em;
-  margin: 0 auto;
 `
 
 const Subtitle = styled.h5`
@@ -56,14 +52,14 @@ const Div: React.SFC<DivProps> = (props) => (
 
 const StyledTile = styled(Div)`
   cursor: pointer;
-  min-height: calc(50vh - 64px);
+  height: calc(50vh - 32px);
   position: relative;
-  padding: 1.2em 1em;
   border-top: ${tileBorder};
   color: rgba(255,255,255,0.3);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   flex-basis: 100%;
   &:first-child {
     border-top: none;
@@ -75,9 +71,6 @@ const StyledTile = styled(Div)`
     background: rgba(0,0,0,0.6);
     color: rgba(255,255,255,1);
     ${Title} {
-    }
-    ${Subtitle} {
-      opacity: 1;
     }
   }
   @media ${device.tablet} {
@@ -94,19 +87,13 @@ const StyledTile = styled(Div)`
     flex-basis: ${100/3}%;
     border-right: ${tileBorder};
     border-top: none;
+    border-top: ${tileBorder};
     }
-    &:last-child {
+    &:last-child, &:nth-child(3) {
       border-right: none;
     }
-  }
-  @media ${device.widescreen} {
-    justify-content: space-between;
-    flex-basis: ${100/3}%;
-    border-right: ${tileBorder};
-    border-top: none;
-    }
-    &:last-child {
-      border-right: none;
+    &:nth-child(4), &:nth-child(5), &:nth-child(6) {
+      border-bottom: none;
     }
   }
 `
@@ -115,9 +102,6 @@ const Tile: React.SFC<Tile> = ({ title, basis, subtitle, img }) => (
   <StyledTile basis={basis}>
     <ImageWrapper><Image sizes={img.sizes}/></ImageWrapper>
     <Title>{title}</Title>
-    <Subtitle>
-      {subtitle}
-    </Subtitle>
   </StyledTile>
 );
 
@@ -128,30 +112,10 @@ const StyledLanding = styled.div`
   justify-content: center;
 `
 
-const Content = styled(Container)`
+const Tiles = styled.div`
   width: 100%;
-  flex-direction: column;
   display: flex;
   flex-flow: row wrap;
-  margin: 0 auto;
-  justify-content: center;
-  align-content: space-between;
-`
-
-const Heading = styled.h1`
-  text-align: center;
-  text-transform: uppercase;
-  margin: 2em auto;
-`
-
-const Tiles = styled(ContainerFluid)`
-  margin-bottom: 64px;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-content: space-between;
-  border-top: ${tileBorder};
-  border-bottom: ${tileBorder};
   background: linear-gradient(120deg,
     hsla(230,5%,40%,0.3),
     hsla(200,5%,40%,0.8)
@@ -168,18 +132,20 @@ class LandingPage extends React.Component<LandingPageProps, State> {
     return (
       <StyledLanding>
 
-        <Tiles>
-          { this.props.sections.map((el, i) =>
-            <Tile
-              key={i}
-              title={el.title}
-              subtitle={el.subtitle}
-              basis={100 / this.props.sections.length + '%'}
-              path={el.path}
-              img={this.props.images.find((e:any) => e.node.relativePath.indexOf(el.img) > -1).node.childImageSharp}
-            />
-          )}
-        </Tiles>
+        <ContainerFluid>
+          <Tiles>
+            { this.props.sections.map((el, i) =>
+              <Tile
+                key={i}
+                title={el.title}
+                subtitle={el.subtitle}
+                basis={100 / this.props.sections.length + '%'}
+                path={el.path}
+                img={this.props.images.find((e:any) => e.node.relativePath.indexOf(el.img) > -1).node.childImageSharp}
+              />
+            )}
+          </Tiles>
+        </ContainerFluid>
 
       </StyledLanding>
     );
