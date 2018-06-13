@@ -63,8 +63,6 @@ const StyledTile = styled(Link)`
   &:hover {
     background: rgba(0,0,0,0.6);
     color: rgba(255,255,255,1);
-    ${Title} {
-    }
   }
   @media ${device.tablet} {
     flex-basis: 50%;
@@ -79,9 +77,9 @@ const StyledTile = styled(Link)`
     flex-basis: ${100/3}%;
     border-right: ${tileBorder};
     border-top: none;
-    border-top: ${tileBorder};
+    border-bottom: ${tileBorder};
     }
-    &:last-child, &:nth-child(3) {
+    &:last-child {
       border-right: none;
     }
     &:nth-child(4), &:nth-child(5), &:nth-child(6) {

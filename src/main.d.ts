@@ -9,3 +9,12 @@ declare interface Theme {
   gray?: string,
   black?: string,
 }
+
+declare interface Item {
+  to: string
+  label: {
+    [key: string]: string
+    en: string
+    zh: string
+  }
+}
