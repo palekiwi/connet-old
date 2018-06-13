@@ -29,17 +29,6 @@ const Image = styled(Img)`
   }
 `
 
-const Logo = styled.div`
-  padding: 0.2em;
-  width: 100%;
-  height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  color: ${color};
-`
-
 const Title = styled.h3`
   color: ${color};
   padding-top: 1em;
@@ -67,7 +56,7 @@ const Div: React.SFC<DivProps> = (props) => (
 
 const StyledTile = styled(Div)`
   cursor: pointer;
-  min-height: 400px;
+  min-height: calc(50vh - 64px);
   position: relative;
   padding: 1.2em 1em;
   border-top: ${tileBorder};
@@ -112,7 +101,7 @@ const StyledTile = styled(Div)`
   }
   @media ${device.widescreen} {
     justify-content: space-between;
-    flex-basis: ${props => props.basis};
+    flex-basis: ${100/3}%;
     border-right: ${tileBorder};
     border-top: none;
     }
@@ -156,6 +145,7 @@ const Heading = styled.h1`
 `
 
 const Tiles = styled(ContainerFluid)`
+  margin-bottom: 64px;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -186,7 +176,7 @@ class LandingPage extends React.Component<LandingPageProps, State> {
               subtitle={el.subtitle}
               basis={100 / this.props.sections.length + '%'}
               path={el.path}
-              img={this.props.headerOne}
+              img={this.props.images.find((e:any) => e.node.relativePath.indexOf(el.img) > -1).node.childImageSharp}
             />
           )}
         </Tiles>

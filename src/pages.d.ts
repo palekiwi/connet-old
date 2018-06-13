@@ -1,5 +1,5 @@
 declare interface LandingPageProps {
-  headerOne: any
+  images: any
   sections: Array<Tile>
 }
 

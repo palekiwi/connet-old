@@ -1,5 +1,3 @@
-import { repeat } from 'ramda';
-
 import * as React from 'react';
 import { navigateTo } from 'gatsby-link';
 
@@ -13,18 +11,18 @@ interface Props {
         title: string
         defLang: string
       }
-    }
-    headerOne: any
+    },
+    allFile: any
   }
 }
 
 const sections: Array<Tile> = [
-  {title: 'Microgrid', subtitle: 'Service description with two sentences', path: '/'},
-  {title: 'Power Scada', subtitle: 'Service description with two sentences of different length by some words', path: '/'},
-  {title: 'Flood Control', subtitle: 'Service description with two sentences', path: '/'},
-  {title: 'Energy Saving', subtitle: 'Service description with two sentences of different length by some words', path: '/'},
-  {title: 'Energy Saving', subtitle: 'Service description with two sentences of different length by some words', path: '/'},
-  {title: 'Energy Saving', subtitle: 'Service description with two sentences of different length by some words', path: '/'},
+  {title: 'Microgrid', subtitle: 'Service description with two sentences', path: '/', img: 'microgrid'},
+  {title: 'Power Scada', subtitle: 'Service description with two sentences of different length by some words', path: '/', img: 'scada'},
+  {title: 'Flood Control', subtitle: 'Service description with two sentences', path: '/', img: 'flood-control'},
+  {title: 'Energy Saving', subtitle: 'Service description with two sentences of different length by some words', path: '/', img: 'energy'},
+  {title: 'Automation', subtitle: 'Service description with two sentences of different length by some words', path: '/', img: 'automation'},
+  {title: 'Other Projects', subtitle: 'Service description with two sentences of different length by some words', path: '/', img: 'solar'},
 ]
 
 class IndexPage extends React.Component<Props, {}> {
@@ -35,7 +33,10 @@ class IndexPage extends React.Component<Props, {}> {
   render () {
     const data = this.props.data;
     return (
-      <LandingPage headerOne={data.headerOne} sections={sections}/>
+      <LandingPage
+        images={this.props.data.allFile.edges}
+        sections={sections}
+      />
     );
   }
 }
@@ -49,9 +50,16 @@ export const query = graphql`
         defLang
       }
     }
-    headerOne: imageSharp(id: {regex: "/solar-panels/"}) {
-      sizes(maxWidth: 1200, grayscale: true) {
-        ...GatsbyImageSharpSizes
+    allFile (filter: {id: {regex: "/header/"}}) {
+      edges {
+        node {
+          relativePath
+          childImageSharp {
+            sizes(maxWidth: 1200, grayscale: true) {
+              ...GatsbyImageSharpSizes
+            }
+          }
+        }
       }
     }
   }
