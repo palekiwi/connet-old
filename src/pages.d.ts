@@ -5,9 +5,8 @@ declare interface LandingPageProps {
 }
 
 declare interface Tile {
-  title: string
-  subtitle: string
-  path: string
+  label: string
+  to: string
   img: any
   lang?: Lang
 }

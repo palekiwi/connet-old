@@ -14,7 +14,7 @@ module.exports = {
     },
     solutions: {
       en: [
-        {to: '/microgrids', label: 'Microgrids', img: 'microgrids'},
+        {to: '/microgrids', label: 'Microgrids', img: 'microgrid'},
         {to: '/scada', label: 'SCADA', img: 'scada'},
         {to: '/flood-control', label: 'Flood Control', img: 'flood-control'},
         {to: '/energy-management', label: 'Energy Management', img: 'energy-management'},

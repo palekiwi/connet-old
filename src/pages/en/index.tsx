@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { navigateTo } from 'gatsby-link';
 
 import LandingPage from '../../components/LandingPage';
 
@@ -10,20 +9,14 @@ interface Props {
       siteMetadata: {
         title: string
         defLang: string
+        solutions: {
+          en: any
+        }
       }
     },
     allFile: any
   }
 }
-
-const sections: Array<Tile> = [
-  {title: 'Microgrid', subtitle: 'Service description with two sentences', path: '/microgrid', img: 'microgrid'},
-  {title: 'Power Scada', subtitle: 'Service description with two sentences of different length by some words', path: '/', img: 'scada'},
-  {title: 'Flood Control', subtitle: 'Service description with two sentences', path: '/', img: 'flood-control'},
-  {title: 'Energy Saving', subtitle: 'Service description with two sentences of different length by some words', path: '/', img: 'energy'},
-  {title: 'Automation', subtitle: 'Service description with two sentences of different length by some words', path: '/', img: 'automation'},
-  {title: 'Other Projects', subtitle: 'Service description with two sentences of different length by some words', path: '/', img: 'solar'},
-]
 
 class IndexPage extends React.Component<Props, {}> {
   render () {
@@ -31,7 +24,7 @@ class IndexPage extends React.Component<Props, {}> {
     return (
       <LandingPage
         images={this.props.data.allFile.edges}
-        sections={sections}
+        sections={this.props.data.site.siteMetadata.solutions.en}
         lang={'en'}
       />
     );
@@ -45,6 +38,13 @@ export const query = graphql`
     site {
       siteMetadata {
         defLang
+        solutions {
+          en {
+            to
+            label
+            img
+          }
+        }
       }
     }
     allFile (filter: {id: {regex: "/header/"}}) {
