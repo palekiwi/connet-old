@@ -30,6 +30,8 @@ interface Props {
     site: {
       siteMetadata: {
         title: string
+        pages: any
+        solutions: any
       }
     }
     logo: any
@@ -69,6 +71,8 @@ class Layout extends React.Component<Props, State> {
             setLang={this.setLang}
             lang={this.state.lang}
             logo={this.props.data.logo}
+            pages={this.props.data.site.siteMetadata.pages}
+            solutions={this.props.data.site.siteMetadata.solutions}
           />
           <LayoutMain>
             {children({...this.props, ...this.state})}
@@ -90,6 +94,18 @@ export const query = graphql`
       siteMetadata {
         title
         pages {
+          en {
+            to
+            label
+            img
+          }
+          zh {
+            to
+            label
+            img
+          }
+        }
+        solutions {
           en {
             to
             label

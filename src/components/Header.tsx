@@ -52,16 +52,26 @@ interface Props {
   logo: any
   setLang: setLang
   toggleLock: (b: boolean) => void
+  pages: any
+  solutions: any
 }
 
-const Header: React.SFC<Props> = ({setLang, lang, logo, toggleLock}) => (
+const Header: React.SFC<Props> = ({setLang, lang, logo, toggleLock, pages, solutions}) => (
   <StyledHeader>
     <HeaderInner>
       <Brand to={'/'} lang={lang}>
         <Logo src={logo.resolutions.src}/>
         <Brandname>{lang == 'en' ? 'Controlnet International' : '健格科技'}</Brandname>
       </Brand>
-      <Navigation logo={logo} toggleLock={toggleLock} setLang={setLang} lang={lang} items={[]}/>
+      <Navigation
+        logo={logo}
+        toggleLock={toggleLock}
+        setLang={setLang}
+        lang={lang}
+        items={[]}
+        pages={pages}
+        solutions={solutions}
+      />
     </HeaderInner>
   </StyledHeader>
 );
