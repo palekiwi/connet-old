@@ -89,6 +89,18 @@ export const query = graphql`
     site {
       siteMetadata {
         title
+        pages {
+          en {
+            to
+            label
+            img
+          }
+          zh {
+            to
+            label
+            img
+          }
+        }
       }
     }
     logo: imageSharp(id: {regex: "/ctn-logo/"}) {
