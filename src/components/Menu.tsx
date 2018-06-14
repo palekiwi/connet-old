@@ -39,6 +39,14 @@ const Logo = styled.img`
 const NavLink = styled(Link)`
 `
 
+const LangSettings = styled.div`
+  display: flex;
+  flex-flow: row no-wrap;
+`
+const LangToggle = styled(Link)`
+  margin: 10px;
+`
+
 const Menu: React.SFC<Props> = ({ items, lang, isOpen, setLang, toggle, logo }) => (
   <Fade duration={{enter: 0, exit: 300}} inProp={isOpen}>
     <StyledMenu>
@@ -50,6 +58,22 @@ const Menu: React.SFC<Props> = ({ items, lang, isOpen, setLang, toggle, logo }) 
           to={item.to}>{item.label[lang]}
         </NavLink>
       )}
+
+      <LangSettings>
+        <LangToggle
+          onClick={() => {toggle(); setLang('en')}}
+          lang={'en'}
+          to={'/'}>
+          English
+        </LangToggle>
+        <LangToggle
+          onClick={() => {toggle(); setLang('zh')}}
+          lang={'zh'}
+          to={'/'}>
+          中文
+        </LangToggle>
+      </LangSettings>
+
     </StyledMenu>
   </Fade>
 );
