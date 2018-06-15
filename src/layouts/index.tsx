@@ -79,6 +79,8 @@ class Layout extends React.Component<Props, State> {
           </LayoutMain>
           <Footer
             lang={this.state.lang}
+            pages={this.props.data.site.siteMetadata.pages}
+            solutions={this.props.data.site.siteMetadata.solutions}
           />
         </LayoutRoot>
       </ThemeProvider>

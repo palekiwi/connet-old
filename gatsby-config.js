@@ -4,7 +4,7 @@ module.exports = {
     defLang: 'en',
     pages: {
       en: [
-        {to: '/about', label: 'About Controlnet', img: 'about'},
+        {to: '/about', label: 'About', img: 'about'},
         {to: '/contact', label: 'Contact', img: 'contact'},
       ],
       zh: [
