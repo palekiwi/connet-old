@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'Controlnet International',
     defLang: 'en',
     pages: {
       en: [
@@ -14,8 +14,8 @@ module.exports = {
     },
     solutions: {
       en: [
-        {to: '/microgrids', label: 'Microgrids', img: 'microgrid'},
         {to: '/scada', label: 'SCADA', img: 'scada'},
+        {to: '/microgrids', label: 'Microgrids', img: 'microgrid'},
         {to: '/flood-control', label: 'Flood Control', img: 'flood-control'},
         {to: '/energy-management', label: 'Energy Management', img: 'energy-management'},
         {to: '/automation', label: 'Automation', img: 'automation'},
