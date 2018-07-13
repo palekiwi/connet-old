@@ -28,7 +28,13 @@ class IndexPage extends React.Component<Props, {}> {
         <Section
           format={'centered'}
           title={'Microgrids'}
-          text={'Information about microgrids, maybe long text'}
+          text={`The Independent Hybrid Power System has been designed
+          by Controlnet to provide a dependable long-term energy
+          suppy that can drive a remote island to economic growth.
+          It is an integrated system of sustainable generation and
+          power management technologies which deliver two
+          types of energy, electrical and thermal, with the following
+          characteristics:`}
         />
         <Section
           format={'image'}

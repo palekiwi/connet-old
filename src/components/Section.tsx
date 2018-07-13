@@ -5,6 +5,13 @@ import Img from 'gatsby-image';
 import Container from '../components/Container';
 
 type Format = 'split' | 'image' | 'centered';
+type Size = 'small' | 'medium' | 'large';
+
+const padding = {
+  small: '3rem 1.5rem',
+  medium: '9rem 1.5rem',
+  large: '18rem 1.5rem'
+};
 
 const theme: Theme = {
   base: 'black',
@@ -16,6 +23,7 @@ const theme: Theme = {
 interface DivProps {
   className?: string
   background?: string
+  size?: Size
 }
 
 const El: React.SFC<DivProps> = (props) => (
@@ -24,7 +32,8 @@ const El: React.SFC<DivProps> = (props) => (
 
 const StyledSection = styled(El)`
   width: 100%;
-  background-color: ${props => props.background || props.theme.white}
+  background-color: ${props => props.background || props.theme.white};
+padding: ${props => padding[props.size]};
 `
 
 const CenteredSection = styled.div`
@@ -68,6 +77,7 @@ const Text = styled.h3`
 Text.defaultProps = {theme};
 
 interface Props {
+  size?: Size
   format: Format
   title?: string
   text?: string
@@ -75,14 +85,13 @@ interface Props {
   background?: string
 }
 
-const Section: React.SFC<Props> = ({ format, img, title, text, background }) => {
+const Section: React.SFC<Props> = ({ size, format, img, title, text, background }) => {
   switch (format) {
     case 'centered':
       return (
-        <StyledSection background={background}>
+        <StyledSection size={size} background={background}>
           <Container>
             <CenteredSection>
-              <p>Centered</p>
               {title && <Title>{title}</Title>}
               {text && <Text>{text}</Text>}
             </CenteredSection>
@@ -113,5 +122,7 @@ const Section: React.SFC<Props> = ({ format, img, title, text, background }) => 
       )
   }
 };
+
+Section.defaultProps = {size: 'small'};
 
 export default Section;
