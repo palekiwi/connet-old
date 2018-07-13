@@ -54,6 +54,8 @@ class IndexPage extends React.Component<Props, {}> {
           text={'Description of feature one'}
         />
         <Section
+          reverse
+          background={'red'}
           format={'image'}
           img={data.featureTwo}
           title={'Feature Two'}

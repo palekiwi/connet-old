@@ -22,20 +22,21 @@ const theme: Theme = {
   black: 'black',
 }
 
-interface DivProps {
+interface SectionProps {
   className?: string
   background?: string
   size?: Size
+  format?: Format
 }
 
-const El: React.SFC<DivProps> = (props) => (
+const El: React.SFC<SectionProps> = (props) => (
   <section className={props.className}>{props.children}</section>
 );
 
 const StyledSection = styled(El)`
   width: 100%;
   background-color: ${props => props.background || props.theme.white};
-  padding: ${props => padding[props.size]};
+  padding: ${props => props.format == 'image' ? '0' : padding[props.size]};
 `
 
 const CenteredSection = styled.div`
@@ -78,12 +79,34 @@ const SplitText = styled.p`
   flex-basis: 60%;
 `
 
-const ImageSection = styled.div`
+interface DivProps {
+  className?: string
+  reverse?: boolean
+}
+
+const Div: React.SFC<DivProps> = (props) => (
+  <section className={props.className}>{props.children}</section>
+);
+
+const ImageSection = styled(Div)`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 10em;
+  @media ${device.tablet} {
+    flex-direction: ${props => props.reverse ? 'row-reverse' : 'row'};
+  }
+`
+
+const Pane = styled.div`
+  flex-basis: 100%;
+  @media ${device.tablet} {
+    flex-basis: 50%;
+  }
+`
+
+const Image = styled(Img)`
+  width: 100%;
+  overflow: hidden;
+  max-height: 300px;
 `
 
 interface Props {
@@ -93,9 +116,10 @@ interface Props {
   text?: string
   img?: any
   background?: string
+  reverse?: boolean
 }
 
-const Section: React.SFC<Props> = ({ size, format, img, title, text, background }) => {
+const Section: React.SFC<Props> = ({ reverse, size, format, img, title, text, background }) => {
   switch (format) {
     case 'centered':
       return (
@@ -123,11 +147,15 @@ const Section: React.SFC<Props> = ({ size, format, img, title, text, background 
 
     case 'image':
       return (
-        <StyledSection background={background}>
-          <ImageSection>
-            <p>Image</p>
-            {title && <Title>{title}</Title>}
-            {text && <Text>{text}</Text>}
+        <StyledSection format={format} size={size} background={background}>
+          <ImageSection reverse={reverse}>
+            <Pane>
+              <Image sizes={img.sizes}/>
+            </Pane>
+            <Pane>
+              {title && <Title>{title}</Title>}
+              {text && <Text>{text}</Text>}
+            </Pane>
           </ImageSection>
         </StyledSection>
       )
