@@ -4,6 +4,8 @@ import styled from "styled-components";
 import Img from 'gatsby-image';
 import Container from '../components/Container';
 
+import { widths, device } from '../styles/constants';
+
 type Format = 'split' | 'image' | 'centered';
 type Size = 'small' | 'medium' | 'large';
 
@@ -33,7 +35,7 @@ const El: React.SFC<DivProps> = (props) => (
 const StyledSection = styled(El)`
   width: 100%;
   background-color: ${props => props.background || props.theme.white};
-padding: ${props => padding[props.size]};
+  padding: ${props => padding[props.size]};
 `
 
 const CenteredSection = styled.div`
@@ -41,23 +43,6 @@ const CenteredSection = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 10em;
-`
-
-const SplitSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 10em;
-`
-
-const ImageSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 10em;
 `
 
 const Title = styled.h1`
@@ -75,6 +60,31 @@ const Text = styled.h3`
 `
 
 Text.defaultProps = {theme};
+
+const SplitSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media ${device.tablet} {
+    flex-direction: row;
+  }
+`
+const SplitTitle = styled.h2`
+  flex-basis: 40%;
+  @media ${device.tablet} {
+    text-align: center;
+  }
+`
+const SplitText = styled.p`
+  flex-basis: 60%;
+`
+
+const ImageSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 10em;
+`
 
 interface Props {
   size?: Size
@@ -101,12 +111,13 @@ const Section: React.SFC<Props> = ({ size, format, img, title, text, background 
 
     case 'split':
       return (
-        <StyledSection background={background}>
-          <SplitSection>
-            <p>Split</p>
-            {title && <Title>{title}</Title>}
-            {text && <Text>{text}</Text>}
-          </SplitSection>
+        <StyledSection size={size} background={background}>
+          <Container>
+            <SplitSection>
+              {title && <SplitTitle>{title}</SplitTitle>}
+              {text && <SplitText>{text}</SplitText>}
+            </SplitSection>
+          </Container>
         </StyledSection>
       )
 
