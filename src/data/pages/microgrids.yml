@@ -1,0 +1,10 @@
+headerImg: ../img/header/microgrids.jpg
+title: Microgrids
+text: The Independent Hybrid Power System has been designed by Controlnet to provide a dependable long-term energy suppy that can drive a remote island to economic growth. It is an integrated system of sustainable generation and power management technologies which deliver two types of energy, electrical and thermal, with the following characteristics
+features:
+  - title: Feature One
+    text: Description of feature one
+    img: ../img/header/microgrids.jpg
+  - title: Feature Two
+    text: Another description 
+    img: ../img/header/energy-management.jpg

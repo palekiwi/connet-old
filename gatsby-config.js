@@ -36,6 +36,7 @@ module.exports = {
     'gatsby-plugin-typescript',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    'gatsby-transformer-yaml',
     {
       resolve: 'gatsby-plugin-typography',
       options: {
@@ -45,9 +46,9 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'img',
-        path: `${__dirname}/src/img`
+        name: 'data',
+        path: `${__dirname}/src/data/`
       }
-    }
+    },
   ],
 }
