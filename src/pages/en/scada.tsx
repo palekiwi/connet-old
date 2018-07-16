@@ -9,15 +9,16 @@ interface Props {
   }
 }
 
-const MicrogridsPage: React.SFC<Props> = (props) => (
+
+const ScadaPage: React.SFC<Props> = (props) => (
   <SimplePage {...props}/>
 );
 
-export default MicrogridsPage;
+export default ScadaPage;
 
 export const query = graphql`
-  query MicrogridsQueryEN {
-    pagesYaml (id: {regex: "/microgrids-en/"}) {
+  query ScadaQueryEN {
+    pagesYaml (id: {regex: "/scada-en/"}) {
       sections {
         format
         title

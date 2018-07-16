@@ -1,0 +1,19 @@
+sections:
+  - format: centered
+    title: SCADA
+    text: Description of SCADA
+
+  - format: features
+    features:
+      - title: Reliable
+        text: some text about this
+        img: ../img/header/energy-management.jpg
+
+      - title: SCADA Feature
+        text: testing
+        img: ../img/header/microgrids.jpg
+
+  - format: split
+    title: System Design
+    text: Description of system design
+    img: ../img/header/microgrids.jpg
