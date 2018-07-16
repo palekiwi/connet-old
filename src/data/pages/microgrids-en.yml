@@ -1,7 +1,8 @@
 sections:
-  - format: centered
+  - format: hero
     title: Microgrids
     text: Description of microgrids
+    img: ../img/header/energy-management.jpg
 
   - format: features
     features:

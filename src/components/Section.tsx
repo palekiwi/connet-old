@@ -98,6 +98,14 @@ const SplitImage = styled(Img)`
   width: 100%;
 `
 
+const HeroSection = styled.div`
+`
+const HeroImage = styled(Img)`
+  width: 100%;
+  max-height: 200px;
+  overflow: hidden;
+`
+
 interface DivProps {
   className?: string
   reverse?: boolean
@@ -195,6 +203,13 @@ const StyledImageSection: React.SFC<Props> = props => (
     </StyledSection>
 );
 
+const StyledHeroSection: React.SFC<Props> = props => (
+  <HeroSection>
+    <HeroImage sizes={props.img.childImageSharp.sizes}/>
+    <StyledCenteredSection {...props}/>
+  </HeroSection>
+);
+
 const StyledFeaturesSection: React.SFC<Props> = props => (
   <div>
     {props.features.map((f, i) => 
@@ -223,6 +238,9 @@ const Section: React.SFC<Props> = (props) => {
 
     case 'features':
       return <StyledFeaturesSection {...props}/>
+
+    case 'hero':
+      return <StyledHeroSection {...props}/>
   }
 };
 

@@ -1,7 +1,8 @@
 sections:
-  - format: centered
+  - format: hero
     title: SCADA
     text: Description of SCADA
+    img: ../img/header/scada.jpg
 
   - format: features
     features:
