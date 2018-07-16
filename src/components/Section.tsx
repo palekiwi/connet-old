@@ -6,7 +6,7 @@ import Container from '../components/Container';
 
 import { widths, device } from '../styles/constants';
 
-type Format = 'hero' | 'split' | 'image' | 'centered';
+type Format = 'hero' | 'split' | 'image' | 'centered' | 'features';
 type Size = 'small' | 'medium' | 'large';
 
 const padding = {
@@ -151,6 +151,7 @@ interface Props {
   img?: any
   background?: string
   reverse?: boolean
+  features?: Array<any>
 }
 
 const StyledCenteredSection: React.SFC<Props> = props => (
@@ -194,6 +195,21 @@ const StyledImageSection: React.SFC<Props> = props => (
     </StyledSection>
 );
 
+const StyledFeaturesSection: React.SFC<Props> = props => (
+  <div>
+    {props.features.map((f, i) => 
+      <Section
+        key={i}
+        format="image"
+        reverse={i % 2 == 0}
+        title={f.title}
+        text={f.text}
+        img={f.img.childImageSharp}
+      />
+    )}
+  </div>
+);
+
 const Section: React.SFC<Props> = (props) => {
   switch (props.format) {
     case 'centered':
@@ -204,6 +220,9 @@ const Section: React.SFC<Props> = (props) => {
 
     case 'image':
       return <StyledImageSection {...props}/>
+
+    case 'features':
+      return <StyledFeaturesSection {...props}/>
   }
 };
 

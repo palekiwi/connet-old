@@ -29,7 +29,8 @@ class IndexPage extends React.Component<Props, {}> {
           title={p.title}
           text={p.text}
         />
-        <Features
+        <Section
+          format="features"
           features={p.features}
         />
         <Section
