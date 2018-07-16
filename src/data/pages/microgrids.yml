@@ -8,3 +8,10 @@ features:
   - title: Feature Two
     text: Another description 
     img: ../img/header/energy-management.jpg
+  - title: Feature Three
+    text: Another description 
+    img: ../img/header/automation.jpg
+architecture:
+  title: System Design
+  text: Some description
+  img: ../img/header/flood-control.jpg

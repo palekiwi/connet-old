@@ -20,7 +20,7 @@ const Features: React.SFC<Props> = ({ features }) => (
         reverse={i % 2 == 0}
         title={f.title}
         text={f.text}
-        img={f.img}
+        img={f.img.childImageSharp}
       />
     )}
   </div>

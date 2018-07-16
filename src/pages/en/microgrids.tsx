@@ -29,6 +29,15 @@ class IndexPage extends React.Component<Props, {}> {
           title={p.title}
           text={p.text}
         />
+        <Features
+          features={p.features}
+        />
+        <Section
+          format={'split'}
+          title={p.architecture.title}
+          text={p.architecture.text}
+          img={p.architecture.img.childImageSharp}
+        />
       </div>
     );
   }
@@ -49,6 +58,17 @@ export const query = graphql`
       title
       text
       features {
+        title
+        text
+        img {
+          childImageSharp {
+            sizes(maxWidth: 600, grayscale: true, quality: 100) {
+              ...GatsbyImageSharpSizes
+            }
+          }
+        }
+      }
+      architecture {
         title
         text
         img {
