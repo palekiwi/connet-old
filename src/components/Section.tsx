@@ -62,6 +62,7 @@ const Text = styled.h3`
 
 Text.defaultProps = {theme};
 
+// SplitSection
 const SplitSection = styled.div`
   display: flex;
   flex-direction: column;
@@ -103,6 +104,13 @@ const Pane = styled.div`
   }
 `
 
+const TextPane = styled(Pane)`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 1.5rem 0;
+`
+
 const Image = styled(Img)`
   width: 100%;
   overflow: hidden;
@@ -123,8 +131,7 @@ const Section: React.SFC<Props> = ({ reverse, size, format, img, title, text, ba
   switch (format) {
     case 'centered':
       return (
-        <StyledSection size={size} background={background}>
-          <Container>
+        <StyledSection size={size} background={background}> <Container>
             <CenteredSection>
               {title && <Title>{title}</Title>}
               {text && <Text>{text}</Text>}
@@ -152,10 +159,10 @@ const Section: React.SFC<Props> = ({ reverse, size, format, img, title, text, ba
             <Pane>
               <Image sizes={img.sizes}/>
             </Pane>
-            <Pane>
+            <TextPane>
               {title && <Title>{title}</Title>}
               {text && <Text>{text}</Text>}
-            </Pane>
+            </TextPane>
           </ImageSection>
         </StyledSection>
       )
