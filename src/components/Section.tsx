@@ -6,7 +6,7 @@ import Container from '../components/Container';
 
 import { widths, device } from '../styles/constants';
 
-type Format = 'split' | 'image' | 'centered';
+type Format = 'hero' | 'split' | 'image' | 'centered';
 type Size = 'small' | 'medium' | 'large';
 
 const padding = {
@@ -153,50 +153,57 @@ interface Props {
   reverse?: boolean
 }
 
-const Section: React.SFC<Props> = ({ reverse, size, format, img, title, text, background }) => {
-  switch (format) {
+const StyledCenteredSection: React.SFC<Props> = props => (
+  <StyledSection size={props.size} background={props.background}>
+    <Container>
+      <CenteredSection>
+        <Title>{props.title}</Title>
+        <LeadText>{props.text}</LeadText>
+      </CenteredSection>
+    </Container>
+  </StyledSection>
+);
+
+const StyledSplitSection: React.SFC<Props> = props => (
+  <StyledSection size={props.size} background={props.background}>
+    <Container>
+      <SplitSection>
+        {(props.title && props.text) &&
+          <SplitParagraph>
+            <SplitTitle>{props.title}</SplitTitle>
+            <SplitText>{props.text}</SplitText>
+          </SplitParagraph>
+        }
+        {props.img && <SplitImage sizes={props.img.sizes}/>}
+      </SplitSection>
+    </Container>
+  </StyledSection>
+);
+
+const StyledImageSection: React.SFC<Props> = props => (
+    <StyledSection format={props.format} size={props.size} background={props.background}>
+      <ImageSection reverse={props.reverse}>
+        <Pane>
+          <Image sizes={props.img.sizes}/>
+        </Pane>
+        <TextPane>
+          <ImageTitle>{props.title}</ImageTitle>
+          <ImageText>{props.text}</ImageText>
+        </TextPane>
+      </ImageSection>
+    </StyledSection>
+);
+
+const Section: React.SFC<Props> = (props) => {
+  switch (props.format) {
     case 'centered':
-      return (
-        <StyledSection size={size} background={background}> <Container>
-            <CenteredSection>
-              {title && <Title>{title}</Title>}
-              {text && <LeadText>{text}</LeadText>}
-            </CenteredSection>
-          </Container>
-        </StyledSection>
-      )
+      return <StyledCenteredSection {...props}/>
 
     case 'split':
-      return (
-        <StyledSection size={size} background={background}>
-          <Container>
-            <SplitSection>
-              {(title && text) &&
-                <SplitParagraph>
-                  <SplitTitle>{title}</SplitTitle>
-                  <SplitText>{text}</SplitText>
-                </SplitParagraph>
-              }
-              {img && <SplitImage sizes={img.sizes}/>}
-            </SplitSection>
-          </Container>
-        </StyledSection>
-      )
+      return <StyledSplitSection {...props}/>
 
     case 'image':
-      return (
-        <StyledSection format={format} size={size} background={background}>
-          <ImageSection reverse={reverse}>
-            <Pane>
-              <Image sizes={img.sizes}/>
-            </Pane>
-            <TextPane>
-              {title && <ImageTitle>{title}</ImageTitle>}
-              {text && <ImageText>{text}</ImageText>}
-            </TextPane>
-          </ImageSection>
-        </StyledSection>
-      )
+      return <StyledImageSection {...props}/>
   }
 };
 
