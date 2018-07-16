@@ -4,6 +4,7 @@ import Img from 'gatsby-image';
 import styled from "styled-components";
 
 import Section from '../../components/Section';
+import Features from '../../components/Features';
 
 interface Props {
   lang: Lang
@@ -36,27 +37,10 @@ class IndexPage extends React.Component<Props, {}> {
           types of energy, electrical and thermal, with the following
           characteristics:`}
         />
-        <Section
-          format={'image'}
-          img={data.featureOne}
-          title={'Feature One'}
-          text={'Description of feature one'}
-        />
-        <Section
-          reverse
-          format={'image'}
-          img={data.featureTwo}
-          title={'Feature Two'}
-          text={'Description of feature one'}
-        />
-        <Section
-          format={'image'}
-          img={data.featureThree}
-          title={'Feature Three'}
-          text={'Description of feature one'}
-        />
+        <Features features={[]}/>
         <Section
           format={'split'}
+          img={data.featureTwo}
           title={'Microgrids'}
           text={`The Independent Hybrid Power System has been designed
           by Controlnet to provide a dependable long-term energy
@@ -75,6 +59,17 @@ export default IndexPage;
 
 export const query = graphql`
   query MicrogridsQueryEN {
+    site {
+      siteMetadata {
+        features {
+          edges {
+            node {
+              title
+            }
+          }
+        }
+      }
+    }
     header: imageSharp(id: {regex: "/microgrids/"}) {
       sizes(maxWidth: 1200, grayscale: true, quality: 100) {
         ...GatsbyImageSharpSizes

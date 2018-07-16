@@ -51,33 +51,51 @@ const Title = styled.h1`
   text-align: center;
 `
 
-Title.defaultProps = {theme};
+const SubTitle = styled.h3`
+  color: ${props => props.theme.black};
+`
 
-const Text = styled.h3`
+Title.defaultProps = {theme};
+SubTitle.defaultProps = {theme};
+
+const LeadText = styled.h3`
   color: ${props => props.theme.black};
   font-weight: 300;
   text-align: center;
-  margin-bottom: 0;
+`
+const Text = styled.p`
+  color: ${props => props.theme.black};
+  text-align: center;
 `
 
+LeadText.defaultProps = {theme};
 Text.defaultProps = {theme};
 
 // SplitSection
 const SplitSection = styled.div`
+  display: block;
+`
+
+const SplitParagraph = styled.div`
   display: flex;
   flex-direction: column;
   @media ${device.tablet} {
     flex-direction: row;
   }
 `
-const SplitTitle = styled.h2`
-  flex-basis: 40%;
-  @media ${device.tablet} {
-    text-align: center;
-  }
+
+const SplitTitle = styled(SubTitle)`
+  flex-basis: 30%;
+  text-transform: uppercase;
 `
-const SplitText = styled.p`
-  flex-basis: 60%;
+
+const SplitText = styled(Text)`
+  flex-basis: 70%;
+  text-align: left;
+`
+
+const SplitImage = styled(Img)`
+  width: 100%;
 `
 
 interface DivProps {
@@ -111,6 +129,14 @@ const TextPane = styled(Pane)`
   margin: 1.5rem 0;
 `
 
+const ImageTitle = styled(SubTitle)`
+  text-align: center;
+  text-transform: uppercase;
+`
+const ImageText = styled(Text)`
+  text-align: center;
+`
+
 const Image = styled(Img)`
   width: 100%;
   overflow: hidden;
@@ -134,7 +160,7 @@ const Section: React.SFC<Props> = ({ reverse, size, format, img, title, text, ba
         <StyledSection size={size} background={background}> <Container>
             <CenteredSection>
               {title && <Title>{title}</Title>}
-              {text && <Text>{text}</Text>}
+              {text && <LeadText>{text}</LeadText>}
             </CenteredSection>
           </Container>
         </StyledSection>
@@ -145,8 +171,13 @@ const Section: React.SFC<Props> = ({ reverse, size, format, img, title, text, ba
         <StyledSection size={size} background={background}>
           <Container>
             <SplitSection>
-              {title && <SplitTitle>{title}</SplitTitle>}
-              {text && <SplitText>{text}</SplitText>}
+              {(title && text) &&
+                <SplitParagraph>
+                  <SplitTitle>{title}</SplitTitle>
+                  <SplitText>{text}</SplitText>
+                </SplitParagraph>
+              }
+              {img && <SplitImage sizes={img.sizes}/>}
             </SplitSection>
           </Container>
         </StyledSection>
@@ -160,8 +191,8 @@ const Section: React.SFC<Props> = ({ reverse, size, format, img, title, text, ba
               <Image sizes={img.sizes}/>
             </Pane>
             <TextPane>
-              {title && <Title>{title}</Title>}
-              {text && <Text>{text}</Text>}
+              {title && <ImageTitle>{title}</ImageTitle>}
+              {text && <ImageText>{text}</ImageText>}
             </TextPane>
           </ImageSection>
         </StyledSection>
