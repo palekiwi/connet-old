@@ -1,10 +1,6 @@
 import * as React from 'react';
 
-import Img from 'gatsby-image';
-import styled from "styled-components";
-
-import Section from '../../components/Section';
-import Features from '../../components/Features';
+import SimplePage from '../../components/SimplePage';
 
 interface Props {
   lang: Lang
@@ -13,52 +9,18 @@ interface Props {
   }
 }
 
-const HeaderImg = styled(Img)`
-  max-height: 150px;
-`
 
-class IndexPage extends React.Component<Props, {}> {
-  render () {
-    const p = this.props.data.pagesYaml;
-    console.log(p);
-    return (
-      <div>
-        <HeaderImg sizes={p.headerImg.childImageSharp.sizes}/>
-        <Section
-          format={'centered'}
-          title={p.title}
-          text={p.text}
-        />
-        <Section
-          format="features"
-          features={p.features}
-        />
-        <Section
-          format={'split'}
-          title={p.architecture.title}
-          text={p.architecture.text}
-          img={p.architecture.img.childImageSharp}
-        />
-      </div>
-    );
-  }
-}
+const MicrogridsPage: React.SFC<Props> = (props) => (
+  <SimplePage {...props}/>
+);
 
-export default IndexPage;
+export default MicrogridsPage;
 
 export const query = graphql`
   query MicrogridsQueryEN {
-    pagesYaml (id: {regex: "/microgrids/"}) {
-      headerImg {
-        childImageSharp {
-          sizes(maxWidth: 600, grayscale: true, quality: 100) {
-            ...GatsbyImageSharpSizes
-          }
-        }
-      }
-      title
-      text
-      features {
+    pagesYaml (id: {regex: "/microgrids-en/"}) {
+      sections {
+        format
         title
         text
         img {
@@ -68,14 +30,14 @@ export const query = graphql`
             }
           }
         }
-      }
-      architecture {
-        title
-        text
-        img {
-          childImageSharp {
-            sizes(maxWidth: 600, grayscale: true, quality: 100) {
-              ...GatsbyImageSharpSizes
+        features {
+          title
+          text
+          img {
+            childImageSharp {
+              sizes(maxWidth: 600, grayscale: true, quality: 100) {
+                ...GatsbyImageSharpSizes
+              }
             }
           }
         }

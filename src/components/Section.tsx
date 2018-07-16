@@ -175,7 +175,7 @@ const StyledSplitSection: React.SFC<Props> = props => (
             <SplitText>{props.text}</SplitText>
           </SplitParagraph>
         }
-        {props.img && <SplitImage sizes={props.img.sizes}/>}
+        {props.img && <SplitImage sizes={props.img.childImageSharp.sizes}/>}
       </SplitSection>
     </Container>
   </StyledSection>
@@ -185,7 +185,7 @@ const StyledImageSection: React.SFC<Props> = props => (
     <StyledSection format={props.format} size={props.size} background={props.background}>
       <ImageSection reverse={props.reverse}>
         <Pane>
-          <Image sizes={props.img.sizes}/>
+          <Image sizes={props.img.childImageSharp.sizes}/>
         </Pane>
         <TextPane>
           <ImageTitle>{props.title}</ImageTitle>
@@ -204,7 +204,7 @@ const StyledFeaturesSection: React.SFC<Props> = props => (
         reverse={i % 2 == 0}
         title={f.title}
         text={f.text}
-        img={f.img.childImageSharp}
+        img={f.img}
       />
     )}
   </div>

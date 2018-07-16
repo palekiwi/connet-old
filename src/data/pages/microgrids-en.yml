@@ -1,0 +1,23 @@
+sections:
+  - format: centered
+    title: Microgrids
+    text: Description of microgrids
+
+  - format: features
+    features:
+      - title: Reliable
+        text: some text about this
+        img: ../img/header/energy-management.jpg
+
+      - title: Sustainable
+        text: testing
+        img: ../img/header/microgrids.jpg
+
+      - title: 24 Hour Supply
+        text: testing
+        img: ../img/header/microgrids.jpg
+
+  - format: split
+    title: System Design
+    text: Description of system design
+    img: ../img/header/microgrids.jpg
