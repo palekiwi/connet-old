@@ -85,6 +85,7 @@ class Layout extends React.Component<Props, State> {
           </LayoutMain>
           <Footer
             lang={this.state.lang}
+            setLang={this.setLang}
             pages={this.props.data.pagesYaml.pages}
             solutions={this.props.data.pagesYaml.solutions}
           />

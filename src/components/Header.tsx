@@ -5,14 +5,14 @@ import Link from '../components/Link';
 import ContainerFluid from '../components/ContainerFluid';
 import Navigation from '../components/Navigation';
 
-import { device, widths, heights, colors } from '../styles/constants';
+import { device, widths, heights } from '../styles/constants';
 
 const StyledHeader = styled.div`
   top: 0;
   left: 0;
   position: fixed;
   width: 100%;
-  background-color: ${colors.white};
+  background-color: ${props => props.theme.white};
   height: ${heights.header}px;
   z-index: 98;
 `
@@ -42,7 +42,7 @@ const Brandname = styled.h4`
     display: block;
   }
   &, &:visited {
-    color: ${colors.base};
+    color: ${props => props.theme.black};
     margin: 0;
     padding: 0;
     padding-left: 1em;
