@@ -8,7 +8,6 @@ import Link from './Link';
 import { colors } from '../styles/constants';
 
 interface Props {
-  items: Array<Item>
   lang: Lang
   isOpen: boolean
   setLang: setLang
@@ -26,7 +25,7 @@ const StyledMenu = styled.div`
   min-height: 100vh;
   max-height: 100vh;
   width: 100%;
-  background-color: ${colors.white};
+  background-color: ${props => props.theme.white};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,8 +39,8 @@ const Logo = styled.img`
 `
 
 const Links = styled.div`
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border-top: 1px solid ${props => props.theme.black};
+  border-bottom: 1px solid ${props => props.theme.black};
   min-width: 30%;
   padding: 4px 0;
 `

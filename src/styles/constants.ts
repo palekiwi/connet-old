@@ -1,8 +1,6 @@
 export const colors = {
-  //base: 'hsl(195, 92%, 38%)',
-  base: 'hsl(195, 0%, 38%)',
-  //accent: 'hsl(33, 86%, 67%)',
-  accent: 'hsl(33, 0%, 67%)',
+  base: 'hsl(195, 92%, 38%)',
+  accent: 'hsl(33, 86%, 67%)',
   white: 'hsl(0, 0%, 100%)',
   black: 'hsl(0, 0%, 10%)',
   gray: 'hsl(0, 0%, 90%)'

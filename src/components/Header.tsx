@@ -5,7 +5,7 @@ import Link from '../components/Link';
 import ContainerFluid from '../components/ContainerFluid';
 import Navigation from '../components/Navigation';
 
-import { widths, heights, colors } from '../styles/constants';
+import { device, widths, heights, colors } from '../styles/constants';
 
 const StyledHeader = styled.div`
   top: 0;
@@ -37,6 +37,10 @@ const Logo = styled.img`
 `
 
 const Brandname = styled.h4`
+  display: none;
+  @media ${device.tablet} {
+    display: block;
+  }
   &, &:visited {
     color: ${colors.base};
     margin: 0;
@@ -50,25 +54,28 @@ const Brandname = styled.h4`
 interface Props {
   lang: Lang
   logo: any
+  title: {
+    en: string
+    zh: string
+  }
   setLang: setLang
   toggleLock: (b: boolean) => void
   pages: any
   solutions: any
 }
 
-const Header: React.SFC<Props> = ({setLang, lang, logo, toggleLock, pages, solutions}) => (
+const Header: React.SFC<Props> = ({setLang, lang, logo, title, toggleLock, pages, solutions}) => (
   <StyledHeader>
     <HeaderInner>
       <Brand to={'/'} lang={lang}>
         <Logo src={logo.resolutions.src}/>
-        <Brandname>{lang == 'en' ? 'Controlnet International' : '健格科技'}</Brandname>
+        <Brandname>{title[lang]}</Brandname>
       </Brand>
       <Navigation
         logo={logo}
         toggleLock={toggleLock}
         setLang={setLang}
         lang={lang}
-        items={[]}
         pages={pages}
         solutions={solutions}
       />

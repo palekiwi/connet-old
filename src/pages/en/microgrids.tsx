@@ -24,7 +24,7 @@ export const query = graphql`
         text
         img {
           childImageSharp {
-            sizes(maxWidth: 600, grayscale: true, quality: 100) {
+            sizes(maxWidth: 600, quality: 100) {
               ...GatsbyImageSharpSizes
             }
           }
@@ -34,7 +34,7 @@ export const query = graphql`
           text
           img {
             childImageSharp {
-              sizes(maxWidth: 600, grayscale: true, quality: 100) {
+              sizes(maxWidth: 600, quality: 100) {
                 ...GatsbyImageSharpSizes
               }
             }

@@ -15,6 +15,7 @@ const Image = styled.img`
 
 const Title = styled.h1`
   text-transform: uppercase;
+  color: ${props => props.theme.black || 'black'}
 `
 
 const SubTitle = styled.h3`

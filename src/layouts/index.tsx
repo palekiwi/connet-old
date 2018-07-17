@@ -29,7 +29,10 @@ interface Props {
   data: {
     site: {
       siteMetadata: {
-        title: string
+        title: {
+          en: string
+          zh: string
+        }
       }
     }
     logo: any
@@ -63,7 +66,7 @@ class Layout extends React.Component<Props, State> {
       <ThemeProvider theme={theme}>
         <LayoutRoot lock={this.state.lock}>
           <Helmet
-            title={data.site.siteMetadata.title}
+            title={data.site.siteMetadata.title[this.state.lang]}
             meta={[
               {name: 'description', content: 'Controlnet International Site'},
             ]}
@@ -72,6 +75,7 @@ class Layout extends React.Component<Props, State> {
             toggleLock={this.toggleLock}
             setLang={this.setLang}
             lang={this.state.lang}
+            title={this.props.data.site.siteMetadata.title}
             logo={this.props.data.logo}
             pages={this.props.data.pagesYaml.pages}
             solutions={this.props.data.pagesYaml.solutions}
@@ -96,7 +100,10 @@ export const query = graphql`
   query LayoutQuery {
     site {
       siteMetadata {
-        title
+        title {
+          en
+          zh
+        }
       }
     }
     pagesYaml(id: {regex: "/navigation/"}) {
@@ -122,7 +129,7 @@ export const query = graphql`
       }
     }
     logo: imageSharp(id: {regex: "/ctn-logo/"}) {
-      resolutions(grayscale: true, quality: 100) {
+      resolutions(quality: 100) {
         ...GatsbyImageSharpResolutions
       }
     }
