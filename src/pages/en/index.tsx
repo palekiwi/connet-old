@@ -9,12 +9,13 @@ interface Props {
       siteMetadata: {
         title: string
         defLang: string
-        solutions: {
-          en: any
-        }
       }
-    },
-    allFile: any
+    }
+    pagesYaml: {
+      solutions: {
+        en: any
+      }
+    }
   }
 }
 
@@ -23,8 +24,7 @@ class IndexPage extends React.Component<Props, {}> {
     const data = this.props.data;
     return (
       <LandingPage
-        images={this.props.data.allFile.edges}
-        sections={this.props.data.site.siteMetadata.solutions.en}
+        sections={this.props.data.pagesYaml.solutions.en}
         lang={'en'}
       />
     );
@@ -38,22 +38,18 @@ export const query = graphql`
     site {
       siteMetadata {
         defLang
-        solutions {
-          en {
-            to
-            label
-            img
-          }
-        }
       }
     }
-    allFile (filter: {id: {regex: "/header/"}}) {
-      edges {
-        node {
-          relativePath
-          childImageSharp {
-            sizes(maxWidth: 1200, grayscale: true) {
-              ...GatsbyImageSharpSizes
+    pagesYaml(id: {regex: "/navigation/"}) {
+      solutions {
+        en {
+          to
+          label
+          img {
+            childImageSharp {
+              sizes(maxWidth: 600) {
+                ...GatsbyImageSharpSizes
+              }
             }
           }
         }

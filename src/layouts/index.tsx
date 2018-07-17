@@ -30,11 +30,13 @@ interface Props {
     site: {
       siteMetadata: {
         title: string
-        pages: any
-        solutions: any
       }
     }
     logo: any
+    pagesYaml: {
+      pages: any
+      solutions: any
+    }
   }
 }
 
@@ -71,16 +73,16 @@ class Layout extends React.Component<Props, State> {
             setLang={this.setLang}
             lang={this.state.lang}
             logo={this.props.data.logo}
-            pages={this.props.data.site.siteMetadata.pages}
-            solutions={this.props.data.site.siteMetadata.solutions}
+            pages={this.props.data.pagesYaml.pages}
+            solutions={this.props.data.pagesYaml.solutions}
           />
           <LayoutMain>
             {children({...this.props, ...this.state})}
           </LayoutMain>
           <Footer
             lang={this.state.lang}
-            pages={this.props.data.site.siteMetadata.pages}
-            solutions={this.props.data.site.siteMetadata.solutions}
+            pages={this.props.data.pagesYaml.pages}
+            solutions={this.props.data.pagesYaml.solutions}
           />
         </LayoutRoot>
       </ThemeProvider>
@@ -95,29 +97,27 @@ export const query = graphql`
     site {
       siteMetadata {
         title
-        pages {
-          en {
-            to
-            label
-            img
-          }
-          zh {
-            to
-            label
-            img
-          }
+      }
+    }
+    pagesYaml(id: {regex: "/navigation/"}) {
+      pages {
+        en {
+          to
+          label
         }
-        solutions {
-          en {
-            to
-            label
-            img
-          }
-          zh {
-            to
-            label
-            img
-          }
+        zh {
+          to
+          label
+        }
+      }
+      solutions {
+        en {
+          to
+          label
+        }
+        zh {
+          to
+          label
         }
       }
     }

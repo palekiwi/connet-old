@@ -88,10 +88,10 @@ const StyledTile = styled(Link)`
   }
 `
 
-const Tile: React.SFC<Tile> = ({ lang, to, title, img }) => (
+const Tile: React.SFC<Tile> = ({ lang, to, label, img }) => (
   <StyledTile to={to} lang={lang}>
     <ImageWrapper><Image sizes={img.sizes}/></ImageWrapper>
-    <Title>{title}</Title>
+    <Title>{label}</Title>
   </StyledTile>
 );
 
@@ -127,9 +127,9 @@ class LandingPage extends React.Component<LandingPageProps, State> {
             { this.props.sections.map((el, i) =>
               <Tile
                 key={i}
-                title={el.label}
+                label={el.label}
                 to={el.to}
-                img={this.props.images.find((e:any) => e.node.relativePath.indexOf(el.img) > -1).node.childImageSharp}
+                img={el.img.childImageSharp}
                 lang={this.props.lang}
               />
             )}

@@ -11,28 +11,22 @@ interface Props {
         title: string
         defLang: string
       }
-    },
-    allFile: any
+    }
+    pagesYaml: {
+      solutions: {
+        zh: any
+      }
+    }
   }
 }
-
-const sections: Array<Tile> = [
-  {title: '微電網', subtitle: 'Service description with two sentences', path: '/microgrid', img: 'microgrid'},
-  {title: 'Power Scada', subtitle: 'Service description with two sentences of different length by some words', path: '/', img: 'scada'},
-  {title: 'Flood Control', subtitle: 'Service description with two sentences', path: '/', img: 'flood-control'},
-  {title: 'Energy Saving', subtitle: 'Service description with two sentences of different length by some words', path: '/', img: 'energy'},
-  {title: 'Automation', subtitle: 'Service description with two sentences of different length by some words', path: '/', img: 'automation'},
-  {title: 'Other Projects', subtitle: 'Service description with two sentences of different length by some words', path: '/', img: 'solar'},
-]
 
 class IndexPage extends React.Component<Props, {}> {
   render () {
     const data = this.props.data;
     return (
       <LandingPage
-        images={this.props.data.allFile.edges}
-        sections={sections}
-        lang={'en'}
+        sections={this.props.data.pagesYaml.solutions.zh}
+        lang={'zh'}
       />
     );
   }
@@ -47,13 +41,16 @@ export const query = graphql`
         defLang
       }
     }
-    allFile (filter: {id: {regex: "/header/"}}) {
-      edges {
-        node {
-          relativePath
-          childImageSharp {
-            sizes(maxWidth: 1200, grayscale: true) {
-              ...GatsbyImageSharpSizes
+    pagesYaml(id: {regex: "/navigation/"}) {
+      solutions {
+        zh {
+          to
+          label
+          img {
+            childImageSharp {
+              sizes(maxWidth: 600) {
+                ...GatsbyImageSharpSizes
+              }
             }
           }
         }

@@ -1,0 +1,43 @@
+pages: 
+  en:
+    - to: /
+      label: Home
+    - to: /about
+      label: About
+    - to: /contact
+      label: Contact
+  zh:
+    - to: /
+      label: Home
+    - to: /about
+      label: 關於健各科技
+    - to: /contact
+      label: 跟我們聯絡
+
+solutions:
+  en:
+    - to: /scada
+      label: SCADA
+      img: ../img/header/scada.jpg
+    - to: /microgrids
+      label: Microgrids
+      img: ../img/header/microgrids.jpg
+    - to: /flood-control
+      label: Flood Control
+      img: ../img/header/flood-control.jpg
+    - to: /other-projects
+      label: Other Projects
+      img: ../img/header/solar-panels.jpg
+  zh:
+    - to: /scada
+      label: SCADA
+      img: ../img/header/scada.jpg
+    - to: /microgrids
+      label: 微電網
+      img: ../img/header/microgrids.jpg
+    - to: /flood-control
+      label: 抽水站自動化
+      img: ../img/header/flood-control.jpg
+    - to: /other-projects
+      label: 其他服務
+      img: ../img/header/solar-panels.jpg
