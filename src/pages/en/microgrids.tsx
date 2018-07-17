@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import SimplePage from '../../components/SimplePage';
+import SimplePage from '../../components/pages/SimplePage';
 
 interface Props {
   lang: Lang

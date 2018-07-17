@@ -19,6 +19,11 @@ sections:
         img: ../img/header/microgrids.jpg
 
   - format: split
-    title: System Design
+    title: Small Island Design
     text: Description of system design
-    img: ../img/header/microgrids.jpg
+    img: ../img/small-island.jpg
+
+  - format: split
+    title: Medium Island Design
+    text: Description of system design
+    img: ../img/medium-island.jpg

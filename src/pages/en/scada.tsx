@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import SimplePage from '../../components/SimplePage';
+import SimplePage from '../../components/pages/SimplePage';
 
 interface Props {
   lang: Lang
@@ -25,7 +25,7 @@ export const query = graphql`
         text
         img {
           childImageSharp {
-            sizes(maxWidth: 600, grayscale: true, quality: 100) {
+            sizes(maxWidth: 1200, quality: 100) {
               ...GatsbyImageSharpSizes
             }
           }
