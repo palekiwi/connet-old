@@ -1,29 +1,36 @@
 sections:
   - format: hero
     title: Microgrids
-    text: Description of microgrids
+    text: 
+      - Description of microgrids
+      - Description of microgrids
     img: ../img/header/energy-management.jpg
 
   - format: features
     features:
       - title: Reliable
-        text: some text about this
+        text: 
+          - some text about this
         img: ../img/header/energy-management.jpg
 
       - title: Sustainable
-        text: testing
+        text: 
+          - more testing
         img: ../img/header/microgrids.jpg
 
       - title: 24 Hour Supply
-        text: testing
+        text:
+          - testing
         img: ../img/header/microgrids.jpg
 
   - format: split
     title: Small Island Design
-    text: Description of system design
+    text: 
+      - Description of system design
     img: ../img/small-island.jpg
 
   - format: split
     title: Medium Island Design
-    text: Description of system design
+    text: 
+      - Description of system design
     img: ../img/medium-island.jpg

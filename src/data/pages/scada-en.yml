@@ -1,20 +1,26 @@
 sections:
   - format: hero
     title: SCADA
-    text: Description of SCADA
+    text:
+      - Description of SCADA
+      - More of SCADA
     img: ../img/header/scada.jpg
 
   - format: features
     features:
       - title: Reliable
-        text: some text about this
+        text: 
+          - some text about this
         img: ../img/header/energy-management.jpg
 
       - title: SCADA Feature
-        text: testing
+        text: 
+          - testing
         img: ../img/header/microgrids.jpg
 
   - format: split
     title: System Design
-    text: Description of system design
+    text:
+      - Description of system design
+      - Description of system design
     img: ../img/header/microgrids.jpg

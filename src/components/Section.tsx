@@ -45,6 +45,10 @@ const CenteredSection = styled.div`
   align-items: center;
   justify-content: center;
 `
+const Paragraphs = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 
 const Title = styled.h1`
   color: ${props => props.theme.black};
@@ -155,7 +159,7 @@ interface Props {
   size?: Size
   format: Format
   title?: string
-  text?: string
+  text?: Array<string>
   img?: any
   background?: string
   reverse?: boolean
@@ -167,7 +171,9 @@ const StyledCenteredSection: React.SFC<Props> = props => (
     <Container>
       <CenteredSection>
         <Title>{props.title}</Title>
-        <LeadText>{props.text}</LeadText>
+        <Paragraphs>
+          {props.text.map((t:string,i:number) => <LeadText>{t}</LeadText>)}
+        </Paragraphs>
       </CenteredSection>
     </Container>
   </StyledSection>
@@ -177,12 +183,12 @@ const StyledSplitSection: React.SFC<Props> = props => (
   <StyledSection size={props.size} background={props.background}>
     <Container>
       <SplitSection>
-        {(props.title && props.text) &&
-          <SplitParagraph>
-            <SplitTitle>{props.title}</SplitTitle>
-            <SplitText>{props.text}</SplitText>
-          </SplitParagraph>
-        }
+        <SplitParagraph>
+          <SplitTitle>{props.title}</SplitTitle>
+          <Paragraphs>
+            {props.text.map((t:string,i:number) => <SplitText>{t}</SplitText>)}
+          </Paragraphs>
+        </SplitParagraph>
         {props.img && <SplitImage sizes={props.img.childImageSharp.sizes}/>}
       </SplitSection>
     </Container>
@@ -197,7 +203,9 @@ const StyledImageSection: React.SFC<Props> = props => (
         </Pane>
         <TextPane>
           <ImageTitle>{props.title}</ImageTitle>
-          <ImageText>{props.text}</ImageText>
+          <Paragraphs>
+            {props.text.map((t,i) => <ImageText key={i}>{t}</ImageText>)}
+          </Paragraphs>
         </TextPane>
       </ImageSection>
     </StyledSection>
