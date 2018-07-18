@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled, {css} from "styled-components";
-import { hamburger as a } from '../styles/keyframes';
+import { hamburger as a } from '../../styles/keyframes';
 
 interface Props {
   isOpen: boolean

@@ -11,10 +11,10 @@ import * as faCoffee from '@fortawesome/fontawesome-free-solid/faCoffee'
 fontawesome.library.add(faCoffee);
 
 import Helmet from 'react-helmet';
-import LayoutRoot from '../components/LayoutRoot';
-import LayoutMain from '../components/LayoutMain';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import LayoutRoot from '../components/layout/LayoutRoot';
+import LayoutMain from '../components/layout/LayoutMain';
+import Header from '../components/layout/Header';
+import Footer from '../components/layout/Footer';
 
 interface State {
   lang: Lang

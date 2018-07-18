@@ -2,10 +2,10 @@ import * as React from 'react';
 import styled from "styled-components";
 
 import Transition from 'react-transition-group/Transition';
-import Fade from './transitions/Fade';
-import Link from './Link';
+import Fade from '../transitions/Fade';
+import Link from '../Link';
 
-import { colors } from '../styles/constants';
+import { colors } from '../../styles/constants';
 
 interface Props {
   lang: Lang

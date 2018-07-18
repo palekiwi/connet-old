@@ -1,11 +1,11 @@
 import * as React from 'react';
 import styled from "styled-components";
-import Link from '../components/Link';
+import Link from '../../components/Link';
 
-import ContainerFluid from '../components/ContainerFluid';
-import Navigation from '../components/Navigation';
+import ContainerFluid from '../../components/ContainerFluid';
+import Navigation from './Navigation';
 
-import { device, widths, heights } from '../styles/constants';
+import { device, widths, heights } from '../../styles/constants';
 
 const StyledHeader = styled.div`
   top: 0;

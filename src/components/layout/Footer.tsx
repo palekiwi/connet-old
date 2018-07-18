@@ -1,10 +1,10 @@
 import * as React from 'react';
 import styled from "styled-components";
 
-import { device } from '../styles/constants';
+import { device } from '../../styles/constants';
 
-import Container from './Container';
-import Link from './Link';
+import Container from '../Container';
+import Link from '../Link';
 
 interface Props {
   lang: Lang

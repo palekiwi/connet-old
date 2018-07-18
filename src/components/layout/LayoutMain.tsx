@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from "styled-components";
-import { heights } from '../styles/constants';
+import { heights } from '../../styles/constants';
 
 interface DivProps {
   className?: string
