@@ -47,7 +47,14 @@ class Layout extends React.Component<Props, State> {
   state: State = {lang: 'en', lock: false}
 
   componentDidMount () {
-    this.setState({lang: locale.getLocale()});
+    const pref = this.props.location.pathname.substr(1,2);
+    if (pref == 'en') {
+      this.setState({lang: 'en'});
+    } else if (pref == 'zh') {
+      this.setState({lang: 'zh'});
+    } else {
+      this.setState({lang: locale.getLocale()});
+    }
   }
 
   private setLang = (lang: Lang) => {
