@@ -24,7 +24,7 @@ const HeroImage = styled(Img)`
 interface Props {
   size?: Size
   title: string
-  text: Array<string>
+  paragraphs: Array<string>
   img?: any
   background?: string
 }

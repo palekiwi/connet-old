@@ -21,7 +21,7 @@ export const query = graphql`
       sections {
         format
         title
-        text
+        paragraphs
         img {
           childImageSharp {
             sizes(maxWidth: 600, quality: 100) {
@@ -31,7 +31,7 @@ export const query = graphql`
         }
         features {
           title
-          text
+          paragraphs
           img {
             childImageSharp {
               sizes(maxWidth: 600, quality: 100) {

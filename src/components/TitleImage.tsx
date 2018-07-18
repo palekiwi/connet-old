@@ -86,7 +86,7 @@ const Image = styled(Img)`
 interface Props {
   size?: Size
   title?: string
-  text?: Array<string>
+  paragraphs?: Array<string>
   img?: any
   background?: string
   reverse?: boolean
@@ -101,7 +101,7 @@ const TitleImage: React.SFC<Props> = props => (
         <TextPane>
           <ImageTitle>{props.title}</ImageTitle>
           <Paragraphs>
-            {props.text.map((t,i) => <ImageText key={i}>{t}</ImageText>)}
+            {props.paragraphs.map((p,i) => <ImageText key={i}>{p}</ImageText>)}
           </Paragraphs>
         </TextPane>
       </ImageSection>

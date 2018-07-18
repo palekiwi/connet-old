@@ -16,7 +16,7 @@ const theme: Theme = {
 
 interface Props {
   title: string
-  text: Array<string>
+  paragraphs: Array<string>
   img?: any
   background?: string
   size?: Size
@@ -64,7 +64,7 @@ const TitleCentered: React.SFC<Props> = props => (
       <CenteredSection>
         <Title>{props.title}</Title>
         <Paragraphs>
-          {props.text.map((t, i) => <LeadText>{t}</LeadText>)}
+          {props.paragraphs.map((p, i) => <LeadText>{p}</LeadText>)}
         </Paragraphs>
       </CenteredSection>
     </Container>

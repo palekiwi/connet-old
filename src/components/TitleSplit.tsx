@@ -74,7 +74,7 @@ const SplitImage = styled(Img)`
 interface Props {
   size?: Size
   title?: string
-  text?: Array<string>
+  paragraphs?: Array<string>
   img?: any
   background?: string
   reverse?: boolean
@@ -88,7 +88,7 @@ const TitleSplit: React.SFC<Props> = props => (
         <SplitParagraph>
           <SplitTitle>{props.title}</SplitTitle>
           <Paragraphs>
-            {props.text.map((t:string,i:number) => <SplitText>{t}</SplitText>)}
+            {props.paragraphs.map((p,i) => <SplitText key={i}>{p}</SplitText>)}
           </Paragraphs>
         </SplitParagraph>
         {props.img && <SplitImage sizes={props.img.childImageSharp.sizes}/>}
