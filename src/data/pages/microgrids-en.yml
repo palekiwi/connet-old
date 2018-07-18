@@ -1,26 +1,25 @@
 sections:
   - format: hero
-    title: Microgrids
+    title: Hybrid Power Microgrids
     text: 
-      - Description of microgrids
-      - Description of microgrids
+      - "The Independent Hybrid Power System has been designed by Controlnet to provide a dependable long-term energy suppy that can drive a remote island to economic growth. It is an integrated system of sustainable generation and power management technologies which deliver two types of energy, electrical and thermal, with the following characteristics:"
     img: ../img/header/energy-management.jpg
 
   - format: features
     features:
       - title: Reliable
         text: 
-          - some text about this
+          - Local resources with multiple generation methods and active battery storage
         img: ../img/header/energy-management.jpg
-
-      - title: Sustainable
-        text: 
-          - more testing
-        img: ../img/header/microgrids.jpg
 
       - title: 24 Hour Supply
         text:
-          - testing
+          - Self sufficient non-stop operation supported by a buffer battery and back-up Diesel generator
+        img: ../img/header/microgrids.jpg
+
+      - title: Efficient
+        text: 
+          - Optimized scale and construction without long-distance transmission losses
         img: ../img/header/microgrids.jpg
 
   - format: split
