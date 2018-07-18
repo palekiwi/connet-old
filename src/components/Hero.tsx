@@ -2,25 +2,38 @@ import * as React from 'react';
 import styled from "styled-components";
 
 import Img from 'gatsby-image';
+import TitleCentered from './TitleCentered';
 
-const StyledHero = styled.div`
-  width: 100%;
+import { widths, device } from '../styles/constants';
+
+const theme: Theme = {
+  base: 'black',
+  accent: 'dark-gray',
+  white: 'white',
+  black: 'black',
+}
+
+const HeroSection = styled.div`
 `
-
-const Image = styled(Img)`
+const HeroImage = styled(Img)`
   width: 100%;
-  max-height: 400px;
+  max-height: 200px;
   overflow: hidden;
 `
 
 interface Props {
-  img: any
+  size?: Size
+  title: string
+  text: Array<string>
+  img?: any
+  background?: string
 }
 
-const Hero: React.SFC<Props> = ({ img }) => (
-  <StyledHero>
-    <Image sizes={img.sizes}/>
-  </StyledHero>
+const Hero: React.SFC<Props> = props => (
+  <HeroSection>
+    <HeroImage sizes={props.img.childImageSharp.sizes}/>
+    <TitleCentered {...props}/>
+  </HeroSection>
 );
 
 export default Hero;

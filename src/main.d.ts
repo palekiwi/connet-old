@@ -18,3 +18,5 @@ declare interface Item {
     zh: string
   }
 }
+
+declare type Size = 'small' | 'medium' | 'large';
