@@ -1,4 +1,4 @@
-sections:
+:
   - format: hero
     title: Hybrid Power Microgrids
     paragraphs: 
@@ -23,13 +23,13 @@ sections:
         img: ../img/header/microgrids.jpg
 
   - format: split
-    title: Small Island Design
+    title: Small Island
     paragraphs: 
-      - Description of system design
+      - "A lighter electricity demand of smaller islands can be met by a system based on solar and wind energy with a load-shifting battery and a diesel generator backup."
     img: ../img/small-island.jpg
 
   - format: split
-    title: Medium Island Design
+    title: Medium Island
     paragraphs: 
-      - Description of system design
+      - "A gasification plant with on-ground solar, wind, battery storage and diesel will provide for higher power loads. Additionally, roof-top solar can power industrial facilities."
     img: ../img/medium-island.jpg

@@ -58,12 +58,12 @@ const SplitParagraph = styled.div`
 `
 
 const SplitTitle = styled(SubTitle)`
-  flex-basis: 30%;
+  flex-basis: 40%;
   text-transform: uppercase;
 `
 
 const SplitText = styled(Text)`
-  flex-basis: 70%;
+  flex-basis: 60%;
   text-align: left;
 `
 

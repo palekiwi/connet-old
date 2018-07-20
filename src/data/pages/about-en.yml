@@ -1,0 +1,52 @@
+sections:
+  - format: hero
+    title: About Controlnet
+    img: "../img/Company Intorduce 201706/00 - EMS For Telecom_1920x1080.jpg"
+      
+  - format: split
+    img: "../img/Company Intorduce 201706/06 -  EMS_1920x1080.jpg"
+    title: Company Establishment
+    paragraphs:
+      - Controlnet International Inc. was established in 1990 and built its SCADA (Supervisory Control And Data Acquisition) system with advantages of central monitoring, energy management and reducing human resources. For the past years, Controlnet had extended business to Building Atuomation System, Lift Controller System, Sewage Disposal System, Internet Video Surveillance System and others. Progressive efforts on R&D and appliances with leading companies pushed Controlnet to become the leading professional company in the world. We provide total solutions from system planning, designing, construction to inspection and maintenance based on our substantial experiences and professionals.
+
+  - format: references
+    img: "../img/Company Intorduce 201706/06 -  EMS_1920x1080.jpg"
+    title: Project References
+    items:
+      - date: 1991
+        client: ChungHwa Telecom
+        project: Telecom Switching Operation Monitoring System of third service center
+        location: Taiwan
+      - date: 1992
+        client: Kaohsiung International Airport
+        project: Central Integration management system (BAS)
+        location: Taiwan
+      - date: 1993
+        client: ChungHwa Telecom
+        project: First telecom Power Operation Supported System (POSS)
+        location: Taiwan
+      - date: 1994
+        client: Taiwan Power Company
+        project: First Power SCADA system of Taiwan Power Company (E-Mei E/S of Xintao ADCC)
+        location: Taiwan
+      - date: 1997
+        client: China Mobile
+        project: Accomplished the biggest scope of POSS in a hierarchical (3 stages) with over 500 telecom base stations in Quan Zhou,China
+        location: China
+      - date: 1998
+        client: Taiwan Power Company
+        project: Power SCADA system for Keelung DDCC with 30 substations of Taiwan Power Company
+        location: Taiwan
+      - date: 1998
+        client: Taiwan Power Company
+        project: Power SCADA system for Keelung DDCC with 30 substations of Taiwan Power Company
+        location: Taiwan
+      - date: 2001
+        client: ChungHwa Telecom
+        project: Taipei ADCC with 120 substations of Taiwan Power Company
+        location: Taiwan
+      - date: 2001
+        client: Taiwan Power Company
+        project: Taipei ADCC with 120 substations of Taiwan Power Company
+        location: Taiwan
+  
